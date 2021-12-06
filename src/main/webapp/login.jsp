@@ -47,7 +47,7 @@
 				</div>
 			</c:if>
 
-          <form action="atracciones.jsp">
+          <form action="welcome.jsp">
             <div class="mb-4">
               <!-- un div con un mb-4 esta avisando que al contenido le pondra un margin botton de 4 px-->
               <label for="text" class="form-label">Usuario</label>

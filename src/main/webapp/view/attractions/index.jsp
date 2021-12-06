@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="/partials/head.jsp"></jsp:include>
+<jsp:include page="/view/partials/head.jsp"></jsp:include>
 </head>
 <body>
 
-	<jsp:include page="/partials/nav.jsp"></jsp:include>
+	<jsp:include page="/view/partials/nav.jsp"></jsp:include>
 
 	<main class="container">
 
