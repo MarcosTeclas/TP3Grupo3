@@ -8,7 +8,7 @@
 	<jsp:include page="view/partials/nav.jsp"></jsp:include>
 
 	<main class="container">
-		<div class="bg-light p-4 rounded">
+		<div class="bg-light p-4 rounded my-5 text-center">
 			<h1>
 				¡Bienvenido, <c:out value="${user.username}" />!
 			</h1>
