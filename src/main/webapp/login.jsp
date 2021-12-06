@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -38,33 +39,32 @@
           <!-- fw-bold es para poner negrita. pt-5 es padding-top y mb-5 es mb-5 es margin botton 5-->
 
           <!--LOGIN-->
+          <c:if test="${flash != null}">
+				<div class="alert alert-danger">
+					<p>
+						<c:out value="${flash}" />
+					</p>
+				</div>
+			</c:if>
 
           <form action="atracciones.jsp">
             <div class="mb-4">
               <!-- un div con un mb-4 esta avisando que al contenido le pondra un margin botton de 4 px-->
               <label for="text" class="form-label">Usuario</label>
               <!-- Label es una etiqueta. for="" siempre tiene que coincidir con el nombre del imput type-->
-              <input
-                type="text"
-                class="form-control"
-                name="text"
-              /><!--el input para que se pueda escribir-->
+              <input type="text" class="form-control" name="text"/><!--el input para que se pueda escribir-->
             </div>
+            
             <div class="mb-4">
               <label for="password" class="form-label">Contraseña</label>
               <!-- Label es una etiqueta. for="" siempre tiene que coincidir con el nombre del imput type-->
-              <input
-                type="password"
-                class="form-control"
-                name="Password"
+              <input type="password" class="form-control" name="Password"
               /><!--el input para que se pueda escribir-->
             </div>
 
             <div class="d-grid mb-5">
               <!--d-grid es para que mi contenido ocupe toda la grilla disponible ( ancho de la pagina que le asigne )-->
-              <button type="submit" class="btn btn-primary">
-                Iniciar sesion
-              </button>
+              <button type="submit" class="btn btn-primary">Iniciar sesion</button>
             </div>
             <footer class="text-center italic">
                 <span><i>Derechos reservados - Grupo 3 YoProgramo</i></span>

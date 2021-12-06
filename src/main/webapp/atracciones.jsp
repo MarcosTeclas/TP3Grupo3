@@ -19,8 +19,8 @@
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
-<script type="text/javascript" src="datatables.js"></script>
+<script defer type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
+<script defer type="text/javascript" src="datatables.js"></script>
 
 <title>TIerra Media</title>
 </head>
@@ -70,78 +70,34 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Moria</td>
-					<td>Aventura</td>
-					<td>2</td>
-					<td>10</td>
-					<td>6</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Minas Tirith</td>
-					<td>Paisaje</td>
-					<td>2.5</td>
-					<td>5</td>
-					<td>25</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td>La Comarca</td>
-					<td>Degustación</td>
-					<td>6.5</td>
-					<td>3</td>
-					<td>150</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>Mordor</td>
-					<td>Aventura</td>
-					<td>3</td>
-					<td>25</td>
-					<td>4</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">5</th>
-					<td>Abismo de Helm</td>
-					<td>Paisaje</td>
-					<td>2</td>
-					<td>5</td>
-					<td>15</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">6</th>
-					<td>Lothlórien</td>
-					<td>Degustacion</td>
-					<td>1</td>
-					<td>35</td>
-					<td>30</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">7</th>
-					<td>Erebor</td>
-					<td>Paisaje</td>
-					<td>3</td>
-					<td>12</td>
-					<td>32</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">8</th>
-					<td>Bosque Negro</td>
-					<td>Aventura</td>
-					<td>4</td>
-					<td>3</td>
-					<td>12</td>
-					<td></td>
-				</tr>
+				<c:forEach items="${attractions}" var="attraction">
+					<tr>
+						<td><strong><c:out value="${attraction.name}"></c:out></strong></td>
+						<td><c:out value="${attraction.cost}"></c:out></td>
+						<td><c:out value="${attraction.duration}"></c:out></td>
+						<td><c:out value="${attraction.capacity}"></c:out></td>
+
+						<td><c:if test="${user.admin}">
+								<a href="/turismo/attractions/edit.do?id=${attraction.id}"
+									class="btn btn-light rounded-0" role="button"><i
+									class="bi bi-pencil-fill"></i></a>
+								<a href="/turismo/attractions/delete.do?id=${attraction.id}"
+									class="btn btn-danger rounded" role="button"><i
+									class="bi bi-x-circle-fill"></i></a>
+							</c:if> <c:choose>
+
+								<c:when
+									test="${user.canAfford(attraction) && user.canAttend(attraction) && attraction.canHost(1)}">
+									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
+										class="btn btn-success rounded" role="button">Comprar</a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="btn btn-secondary rounded disabled"
+										role="button">No se puede comprar</a>
+								</c:otherwise>
+							</c:choose></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
