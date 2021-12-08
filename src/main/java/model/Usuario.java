@@ -16,7 +16,7 @@ public class Usuario {
 	private String password;
 
 	public Usuario(int id, String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
-			List<Producto> itinerario) {
+			List<Producto> itinerario, String password, Boolean admin) {
 		if (validaNumeros(dinero)) {
 			this.dinero = dinero;
 		} else {
@@ -31,6 +31,8 @@ public class Usuario {
 		this.nombre = nombre;
 		this.preferida = preferencia;
 		this.itinerario = itinerario;
+		this.password = password;
+		this.admin = admin;
 	}
 
 	public int getId() {
