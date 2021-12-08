@@ -24,14 +24,14 @@ public void init() throws ServletException {
 }
 
 public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-	String username = request.getParameter("username"); 
-	String password = request.getParameter("password");
+	String username = request.getParameter("usuario"); 
+	//String password = request.getParameter("password");
 	
-	Usuario usuario = loginService.login(username, password);
+	Usuario usuario = loginService.login(username);
 	
 	if(!usuario.isNull()) {
-		request.getSession().setAttribute("user", usuario);
-		response.sendRedirect("index.jsp");
+		request.getSession().setAttribute("usuario", usuario);
+		response.sendRedirect("welcome.jsp");
 	}else {
 		request.setAttribute("flash", "Nombre de usuario y contraseña incorrectos");
 		

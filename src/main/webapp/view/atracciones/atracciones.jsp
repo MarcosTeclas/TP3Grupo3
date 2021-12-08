@@ -31,7 +31,7 @@
 			<h1>Estas son las atracciones de la Tierra Media</h1>
 		</div>
 
-		<c:if test="${user.isAdmin()}">
+		<c:if test="${usuario.isAdmin()}">
 			<div class="mb-3">
 				<a href="/turismo/attractions/create.do" class="btn btn-primary"
 					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
@@ -49,24 +49,27 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${attractions}" var="attraction">
+				<c:forEach items="${atracciones}" var="attraction">
 					<tr>
-						<td><strong><c:out value="${attraction.name}"></c:out></strong></td>
-						<td><c:out value="${attraction.cost}"></c:out></td>
-						<td><c:out value="${attraction.duration}"></c:out></td>
-						<td><c:out value="${attraction.capacity}"></c:out></td>
+						<td><strong><c:out value="${attraction.nombre}"></c:out></strong></td>
+						<td><c:out value="${attraction.costo}"></c:out></td>
+						<td><c:out value="${attraction.tiempoNecesario}"></c:out></td>
+						<td><c:out value="${attraction.cupoPersonas}"></c:out></td>
 
-						<td><c:if test="${user.admin}">
+						<!-- 
+						<td><c:if test="${usuario.admin}">
 								<a href="/turismo/attractions/edit.do?id=${attraction.id}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
 								<a href="/turismo/attractions/delete.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
-							</c:if> <c:choose>
+							</c:if> -->
+							
+							<c:choose> 
 
 								<c:when
-									test="${user.canAfford(attraction) && user.canAttend(attraction) && attraction.canHost(1)}">
+									test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo>0}">
 									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>

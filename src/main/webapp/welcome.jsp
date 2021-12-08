@@ -10,9 +10,10 @@
 	<main class="container">
 		<div class="bg-light p-4 rounded my-5 text-center">
 			<h1>
-				¡Bienvenido, <c:out value="${user.username}" />!
+				¡Bienvenido, <c:out value="${usuario.nombre}" />!
 			</h1>
-		</div>
+		</div >
+		<div><img class="mx-auto d-block" alt="" src="img/saludoanimado.png"></div>
 	</main>
 </body>
 </html>

@@ -47,21 +47,22 @@
 				</div>
 			</c:if>
 
-          <form action="welcome.jsp">
+          <form action="login" method="post">
             <div class="mb-4">
               <!-- un div con un mb-4 esta avisando que al contenido le pondra un margin botton de 4 px-->
               <label for="text" class="form-label">Usuario</label>
               <!-- Label es una etiqueta. for="" siempre tiene que coincidir con el nombre del imput type-->
-              <input type="text" class="form-control" name="text"/><!--el input para que se pueda escribir-->
+              <input type="text" class="form-control" name="usuario"/><!--el input para que se pueda escribir-->
             </div>
             
+            <!-- 
             <div class="mb-4">
               <label for="password" class="form-label">Contraseña</label>
               <!-- Label es una etiqueta. for="" siempre tiene que coincidir con el nombre del imput type-->
-              <input type="password" class="form-control" name="Password"
+              <!--<input type="password" class="form-control" name="Password"
               /><!--el input para que se pueda escribir-->
-            </div>
-
+            <!--</div>
+				 -->
             <div class="d-grid mb-5">
               <!--d-grid es para que mi contenido ocupe toda la grilla disponible ( ancho de la pagina que le asigne )-->
               <button type="submit" class="btn btn-primary">Iniciar sesion</button>

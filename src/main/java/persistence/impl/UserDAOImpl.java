@@ -22,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public int insert(Usuario usuario) {
 		try {
-			String sql = "INSERT INTO USUARIOS (NOMBRE, ATRACCION_PREFERIDA, DINERO, TIEMPO) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO USUARIOS (NOMBRE, ATRACCION_PREFERIDA, DINERO_DISPONIBLE, TIEMPO_DISPONIBLE,PASSWORD) VALUES (?, ?, ?, ?,?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -30,6 +30,7 @@ public class UserDAOImpl implements UserDAO {
 			statement.setString(2, usuario.getAtraccionPreferida().toString());
 			statement.setDouble(3, usuario.getDinero());
 			statement.setDouble(4, usuario.getTiempo());
+			statement.setString(5, usuario.getPassword());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -92,7 +93,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	public Usuario findByUsername(String nombre) {
 		try {
-			String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
+			String sql = "SELECT * FROM USUARIOS WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, nombre);
@@ -147,7 +148,7 @@ public class UserDAOImpl implements UserDAO {
 	private Usuario toUser(ResultSet resultados) throws SQLException {
 		Usuario usuario = new Usuario(resultados.getInt(1), resultados.getString(2),
 				TipoDeAtraccion.valueOf(resultados.getString(3)), resultados.getDouble(4), resultados.getDouble(5),
-				getProductosComprados(resultados.getInt(1)));
+				getProductosComprados(resultados.getInt(1)),resultados.getString(6));
 		return usuario;
 	}
 	

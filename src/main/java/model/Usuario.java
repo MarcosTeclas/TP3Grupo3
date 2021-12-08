@@ -1,8 +1,11 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import persistence.UserDAO;
+import persistence.impl.UserDAOImpl;
 import utils.Crypt;
 
 public class Usuario {
@@ -12,11 +15,12 @@ public class Usuario {
 	private TipoDeAtraccion preferida;
 	private double dinero, tiempo;
 	private List<Producto> itinerario;
-	private boolean admin;
+	//private boolean admin;
 	private String password;
 
+	
 	public Usuario(int id, String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
-			List<Producto> itinerario, String password, Boolean admin) {
+			List<Producto> itinerario, String password) {
 		if (validaNumeros(dinero)) {
 			this.dinero = dinero;
 		} else {
@@ -32,7 +36,26 @@ public class Usuario {
 		this.preferida = preferencia;
 		this.itinerario = itinerario;
 		this.password = password;
-		this.admin = admin;
+		//this.admin = admin;
+	}
+	public Usuario( String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
+			List<Producto> itinerario, String password) {
+		if (validaNumeros(dinero)) {
+			this.dinero = dinero;
+		} else {
+			this.dinero = 0;
+		}
+		if (validaNumeros(tiempo)) {
+			this.tiempo = tiempo;
+		} else {
+			this.tiempo = 0;
+		}
+		
+		this.nombre = nombre;
+		this.preferida = preferencia;
+		this.itinerario = itinerario;
+		this.password = password;
+		//this.admin = admin;
 	}
 
 	public int getId() {
@@ -49,6 +72,13 @@ public class Usuario {
 
 	public double getTiempo() {
 		return tiempo;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public TipoDeAtraccion getAtraccionPreferida() {
@@ -109,11 +139,24 @@ public class Usuario {
 		return Crypt.match(password, this.password);
 	}
 	
-	public Boolean getAdmin() {
+	/*public Boolean getAdmin() {
 		return admin;
+	}*/
+	
+	public boolean isAdmin() {
+		
+		return true;
 	}
 	
 	public boolean isNull() {
 		return false;
 	}
+	
+	/*public static void main(String[] args) {
+		List<Producto>productos=new ArrayList<>();
+	 Usuario marcos = new Usuario("marcos",TipoDeAtraccion.AVENTURA,100,100,productos,"marcos");
+	 UserDAOImpl u = new UserDAOImpl();
+	 u.insert(marcos);
+	 System.out.println(marcos.toString());
+	}*/
 }
