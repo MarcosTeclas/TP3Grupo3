@@ -31,7 +31,7 @@
 
 		<c:if test="${usuario.isAdmin()}">
 			<div class="p-1 mb-7 my-3 hover">
-				<a href="/turismo/attractions/create.do" class="btn btn-primary shadow hover"
+				<a href="/turismo/attractions/create.do" class="btn btn-primary shadow"
 					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
 				</a>
 			</div>
@@ -54,21 +54,18 @@
 						<td><c:out value="${attraction.tiempoNecesario}"></c:out></td>
 						<td><c:out value="${attraction.cupo}"></c:out></td>
 
-						<!-- 
+						
 						<td><c:if test="${usuario.admin}">
-								<a href="/turismo/attractions/edit.do?id=${attraction.id}"
-									class="btn btn-light rounded-0" role="button"><i
-									class="bi bi-pencil-fill"></i></a>
-								<a href="/turismo/attractions/delete.do?id=${attraction.id}"
-									class="btn btn-danger rounded" role="button"><i
-									class="bi bi-x-circle-fill"></i></a>
-							</c:if> -->
-							
-							<td><c:choose> 
-
+								<a href="/view/atracciones/edit.do?id=${attraction.id}"
+									class="btn btn-light" role="button">Editar</a>
+								<a href="/view/atracciones/delete.do?id=${attraction.id}"
+									class="btn btn-danger rounded" role="button">Eliminar</a>
+							</c:if> 
+	
+							<c:choose> 
 								<c:when
 									test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo()>0}">
-									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
+									<a href="/view/atracciones/comprar.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>
 								<c:otherwise>

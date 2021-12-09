@@ -3,20 +3,20 @@
 	<div class="mb-3">
 		<label for="name" class="col-form-label">Nombre:</label> <input
 			type="text" class="form-control" id="name" name="name"
-			required value="${attraction.name}">
+			required value="${attraction.nombre}">
 	</div>
 	<div class="mb-3">
 		<label for="cost"
-			class='col-form-label ${attraction.errors.get("cost") != null ? "is-invalid" : "" }'>Costo:</label>
+			class='col-form-label ${attraction.errors.get("costo") != null ? "is-invalid" : "" }'>Costo:</label>
 		<input class="form-control" type="number" id="cost" name="cost"
-			required value="${attraction.cost}"></input>
+			required value="${attraction.costo}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${attraction.errors.get("cost")}'></c:out>
+			<c:out value='${attraction.errors.get("costo")}'></c:out>
 		</div>
 	</div>
 	<div class="mb-3">
 		<label for="duration"
-			class='col-form-label ${attraction.errors.get("duration") != null ? "is-invalid" : "" }'>Duration:</label>
+			class='col-form-label ${attraction.errors.get("tiempoNecesario") != null ? "is-invalid" : "" }'>tiempoNecesario:</label>
 		<input class="form-control" type="number" id="duration" name="duration"
 			required value="${attraction.duration}"></input>
 		<div class="invalid-feedback">
@@ -25,11 +25,11 @@
 	</div>
 	<div class="mb-3">
 		<label for="capacity"
-			class='col-form-label ${attraction.errors.get("capacity") != null ? "is-invalid" : "" }'>Capacity:</label>
+			class='col-form-label ${attraction.errors.get("capacity") != null ? "is-invalid" : "" }'>cupoPersonas:</label>
 		<input class="form-control" type="number" id="capacity" name="capacity"
-			required value="${attraction.capacity}"></input>
+			required value="${attraction.cupoPersonas}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${attraction.errors.get("capacity")}'></c:out>
+			<c:out value='${attraction.errors.get("cupoPersonas")}'></c:out>
 		</div>
 	</div>
 </div>

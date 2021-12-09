@@ -12,7 +12,7 @@ import model.Atraccion;
 import model.TipoDeAtraccion;
 import services.AtraccionService;
 
-@WebServlet("/atracciones/edit.do")
+@WebServlet("/view/atracciones/edit.do")
 public class EditAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -1218727026712040920L;
@@ -32,7 +32,7 @@ public class EditAtraccionesServlet extends HttpServlet {
 		Atraccion atraccion = atraccionService.find(id);
 		request.setAttribute("atraccion", atraccion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/atracciones/edit.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/atracciones/edit.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -49,11 +49,11 @@ public class EditAtraccionesServlet extends HttpServlet {
 		Atraccion atraccion = atraccionService.update(id, nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion);
 
 		if (atraccion.isValid()) {
-			response.sendRedirect("/turismo/atracciones/index.do");
+			response.sendRedirect("/view/atracciones/atracciones.do");
 		} else {
 			request.setAttribute("atraccion", atraccion);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/atracciones/edit.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/atracciones/edit.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

@@ -29,7 +29,7 @@ public class DeleteAtraccionesServlet extends HttpServlet {
 		
 		atraccionService.delete(id);
 		
-		response.sendRedirect("/turismo/atracciones/index.do");
+		response.sendRedirect("/view/atracciones/atracciones.do");
 	
 	}
 }
