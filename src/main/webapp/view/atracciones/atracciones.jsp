@@ -27,21 +27,19 @@
 			</div>
 		</c:if>
 
-		<div class="bg-light p-4 mb-3 rounded">
-			<h1>Estas son las atracciones de la Tierra Media</h1>
-		</div>
+		
 
 		<c:if test="${usuario.isAdmin()}">
-			<div class="mb-3">
-				<a href="/turismo/attractions/create.do" class="btn btn-primary"
+			<div class="p-1 mb-7 my-3 hover">
+				<a href="/turismo/attractions/create.do" class="btn btn-primary shadow hover"
 					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
 				</a>
 			</div>
 		</c:if>
-		<table class="table table-stripped table-hover">
+		<table id="example" class="table table-stripped table-hover table-dark">
 			<thead>
 				<tr>
-					<th>Atraccion</th>
+					<th>Nombre</th>
 					<th>Costo</th>
 					<th>Duracion</th>
 					<th>Cupo</th>
@@ -54,7 +52,7 @@
 						<td><strong><c:out value="${attraction.nombre}"></c:out></strong></td>
 						<td><c:out value="${attraction.costo}"></c:out></td>
 						<td><c:out value="${attraction.tiempoNecesario}"></c:out></td>
-						<td><c:out value="${attraction.cupoPersonas}"></c:out></td>
+						<td><c:out value="${attraction.cupo}"></c:out></td>
 
 						<!-- 
 						<td><c:if test="${usuario.admin}">
@@ -66,10 +64,10 @@
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> -->
 							
-							<c:choose> 
+							<td><c:choose> 
 
 								<c:when
-									test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo>0}">
+									test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo()>0}">
 									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>
@@ -82,6 +80,12 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		<footer>
+		<div class="mt-5">
+		
+		</div>
+		</footer>
 
 	</main>
 
