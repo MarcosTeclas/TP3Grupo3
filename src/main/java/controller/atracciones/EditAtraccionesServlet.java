@@ -12,16 +12,20 @@ import model.Atraccion;
 import model.TipoDeAtraccion;
 import services.AtraccionService;
 
-@WebServlet("/view/atracciones/edit.do")
+
+@WebServlet("/edit.do")
 public class EditAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -1218727026712040920L;
 	private AtraccionService atraccionService;
 	
+	
+	
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		this.atraccionService = new AtraccionService();
+		
 	}
 
 	@Override
@@ -42,9 +46,10 @@ public class EditAtraccionesServlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
 		Integer costo = Integer.parseInt(request.getParameter("costo"));
+		//Integer cost = Integer.parseInt(req.getParameter("cost"));
 		Double tiempoNecesario = Double.parseDouble(request.getParameter("tiempoNecesario"));
 		Integer cupoPersonas = Integer.parseInt(request.getParameter("cupoPersonas"));
-		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipoAtraccion"));
+		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipo"));
 
 		Atraccion atraccion = atraccionService.update(id, nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion);
 

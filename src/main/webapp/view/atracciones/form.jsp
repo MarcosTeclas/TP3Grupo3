@@ -2,36 +2,49 @@
 <div class="modal-body">
 	<div class="mb-3">
 		<label for="name" class="col-form-label">Nombre:</label> <input
-			type="text" class="form-control" id="name" name="name"
-			required value="${attraction.nombre}">
+			type="text" placeholder="Ingrese el nombre de la nueva atraccion" class="form-control" id="nombre" name="nombre"
+			required value="${atraccion.nombre}">
+			
 	</div>
 	<div class="mb-3">
 		<label for="cost"
-			class='col-form-label ${attraction.errors.get("costo") != null ? "is-invalid" : "" }'>Costo:</label>
-		<input class="form-control" type="number" id="cost" name="cost"
-			required value="${attraction.costo}"></input>
+			class='col-form-label ${atraccion.errors.get("costo") != null ? "is-invalid" : "" }'>Costo:</label>
+		<input class="form-control" placeholder="Ingrese el costo del boleto" type="number" min=0.5 step=0.5 id="costo" name="costo"
+			required value="${atraccion.costo}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${attraction.errors.get("costo")}'></c:out>
+			<c:out value='${atraccion.errors.get("costo")}'></c:out>
+			
 		</div>
 	</div>
 	<div class="mb-3">
 		<label for="duration"
-			class='col-form-label ${attraction.errors.get("tiempoNecesario") != null ? "is-invalid" : "" }'>tiempoNecesario:</label>
-		<input class="form-control" type="number" id="duration" name="duration"
-			required value="${attraction.duration}"></input>
+			class='col-form-label ${atraccion.errors.get("tiempoNecesario") != null ? "is-invalid" : "" }'>tiempo de la atraccion:</label>
+		<input class="form-control" placeholder="Tiempo de duracion" type="number" min=0.5 step=0.5 id="tiempoNecesario" name="tiempoNecesario"
+			required value="${atraccion.tiempoNecesario}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${attraction.errors.get("duration")}'></c:out>
+			<c:out value='${atraccion.errors.get("tiempoNecesario")}'></c:out>
 		</div>
 	</div>
 	<div class="mb-3">
 		<label for="capacity"
-			class='col-form-label ${attraction.errors.get("capacity") != null ? "is-invalid" : "" }'>cupoPersonas:</label>
-		<input class="form-control" type="number" id="capacity" name="capacity"
-			required value="${attraction.cupoPersonas}"></input>
+			class='col-form-label ${atraccion.errors.get("cupo") != null ? "is-invalid" : "" }'>Cupo:</label>
+		<input class="form-control" placeholder="Cupo maximo para el evento" type="number" min=1 id="cupo" name="cupo"
+			required value="${atraccion.cupo}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${attraction.errors.get("cupoPersonas")}'></c:out>
+			<c:out value='${atraccion.errors.get("cupo")}'></c:out>
 		</div>
 	</div>
+	<div class="mb-3">
+		<label for="tipo" class="form-label">Tipo de atraccion</label>
+		<select class="form-select" required name="tipo" aria-label="default select example" id="tipo">
+		
+		<option selected value="">Seleccione un tipo de atraccion</option>
+		<option value="AVENTURA">AVENTURA</option>
+		<option value="DEGUSTACION">DEGUSTACION</option>
+		<option value="PAISAJE">PAISAJE</option>
+		</select>
+	</div>
+	
 </div>
 <div>
 	<button type="submit" class="btn btn-primary">Guardar</button>

@@ -31,7 +31,7 @@
 
 		<c:if test="${usuario.isAdmin()}">
 			<div class="p-1 mb-7 my-3 hover">
-				<a href="/turismo/attractions/create.do" class="btn btn-primary shadow"
+				<a href="create.do" class="btn btn-primary shadow"
 					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
 				</a>
 			</div>
@@ -56,9 +56,9 @@
 
 						
 						<td><c:if test="${usuario.admin}">
-								<a href="/view/atracciones/edit.do?id=${attraction.id}"
+								<a href="edit.do?id=${attraction.id}"
 									class="btn btn-light" role="button">Editar</a>
-								<a href="/view/atracciones/delete.do?id=${attraction.id}"
+								<a href="delete.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button">Eliminar</a>
 							</c:if> 
 	
