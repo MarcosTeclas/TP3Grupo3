@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import persistence.DAOFactory;
 import services.promociones.ComprarPromocionService;
 
-@WebServlet("/promociones/comprar.do")
+@WebServlet("/comprar.do")
 public class ComprarPromocionServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 4347308040695405878L;
@@ -42,7 +42,7 @@ public class ComprarPromocionServlet extends HttpServlet{
 			request.setAttribute("flash", "No se ha podido realizar la compra");
 		}*/
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/promociones/promociones.do");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/promociones/promociones.do");
 		dispatcher.forward(request, response);
 	}
 

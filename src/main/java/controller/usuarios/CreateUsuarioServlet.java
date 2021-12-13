@@ -12,7 +12,7 @@ import model.TipoDeAtraccion;
 import model.Usuario;
 import services.usuarios.UsuarioService;
 
-@WebServlet("/create.do")
+@WebServlet("/crearUsuario.do")
 public class CreateUsuarioServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7190349227357954012L;
@@ -28,7 +28,7 @@ public class CreateUsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/usuarios/create.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/usuarios/crearUsuario.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -13,7 +13,7 @@ import model.Atraccion;
 import model.TipoDeAtraccion;
 import services.promociones.PromocionService;
 
-@WebServlet("/create.do")
+@WebServlet("/crearPromociones.do")
 public class CreatePromocionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7367639614719672088L;
@@ -29,7 +29,7 @@ public class CreatePromocionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/promociones/create.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/promociones/crearPromosiones.jsp");
 		dispatcher.forward(request, response);
 	}
 

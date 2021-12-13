@@ -15,7 +15,7 @@ import model.TipoDeAtraccion;
 import services.promociones.PromocionService;
 
 
-@WebServlet("/edit.do")
+@WebServlet("/editPromociones.do")
 public class EditPromocionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 8643379155774311064L;

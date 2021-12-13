@@ -34,7 +34,7 @@
 				Lo siento, tiene que ser administrador para ver esta página!
 			</h1>
 		</div >
-		<div><img class="mx-auto d-block" alt="" src="img/saludoanimado.png"></div>
+		<div><img class="mx-auto d-block" alt="" src=""></div> <!-- Colocar una imagen relacionada -->
 		</c:if>
 		<div class="mb-5"></div>
 		<table id="example"
@@ -49,19 +49,22 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${atracciones}" var="attraction">
+				<c:forEach items="${usuarios}" var="usuario">
 					<tr>
-						<td><strong><c:out value="${attraction.nombre}"></c:out></strong></td>
-						<td><c:out value="${attraction.tipo}"></c:out></td>
-						<td><c:out value="${attraction.costo}"></c:out></td>
-						<td><c:out value="${attraction.tiempoNecesario}"></c:out></td>
-						<td><c:out value="${attraction.cupo}"></c:out></td>
+						<td><strong><c:out value="${usuario.nombre}"></c:out></strong></td>
+						<td><c:out value="${usuario.dinero}"></c:out></td>
+						<td><c:out value="${usuario.tiempo}"></c:out></td>
+						<td>
+						<c:out value="${usuario.itinerario}"></c:out>
+						
+						</td>
+						
 						<td><c:if test="${usuario.admin}">
-								<a href="edit.do?id=${attraction.id}" class="btn btn-light"
+								<a href="editarUsuario.do?id=${usuario.id}" class="btn btn-light"
 									role="button">Editar</a>
-								<a href="delete.do?id=${attraction.id}"
+								<a href="borrarUsuario.do?id=${usuario.id}"
 									class="btn btn-danger rounded" role="button">Eliminar</a>
-							</c:if> ></td>
+							</c:if> </td>
 					</tr>
 				</c:forEach>
 			</tbody>

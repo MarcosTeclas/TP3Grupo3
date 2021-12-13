@@ -13,7 +13,7 @@ import model.Usuario;
 import services.usuarios.UsuarioService;
 
 
-@WebServlet("/edit.do")
+@WebServlet("/editarUsuario.do")
 public class EditUsuarioServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -7568822069252259246L;

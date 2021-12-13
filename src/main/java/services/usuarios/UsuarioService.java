@@ -53,7 +53,7 @@ public class UsuarioService {
 	}
 	
 	public void delete(Integer id) {
-		Usuario usuario = new Usuario(0, null, null, 0, 0, null, null);
+		Usuario usuario = new Usuario(id, null, null, 0, 0, null, null);
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		userDAO.delete(usuario);

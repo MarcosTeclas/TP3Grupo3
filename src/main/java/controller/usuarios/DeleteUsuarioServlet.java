@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import services.usuarios.UsuarioService;
 
-@WebServlet("/delete.do")
+@WebServlet("/borrarUsuario.do")
 public class DeleteUsuarioServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -3628940327302197434L;
