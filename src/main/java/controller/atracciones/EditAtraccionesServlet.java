@@ -35,7 +35,6 @@ public class EditAtraccionesServlet extends HttpServlet {
 		
 		Atraccion atraccion = atraccionService.find(id);
 		request.setAttribute("atraccion", atraccion);
-
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/atracciones/edit.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -43,18 +42,21 @@ public class EditAtraccionesServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		Integer id = Integer.parseInt(request.getParameter("id"));	
 		String nombre = request.getParameter("nombre");
-		Integer costo = Integer.parseInt(request.getParameter("costo"));
-		//Integer cost = Integer.parseInt(req.getParameter("cost"));
+		Double costo = Double.parseDouble(request.getParameter("costo"));
 		Double tiempoNecesario = Double.parseDouble(request.getParameter("tiempoNecesario"));
-		Integer cupoPersonas = Integer.parseInt(request.getParameter("cupoPersonas"));
+		Integer cupoPersonas = Integer.parseInt(request.getParameter("cupo"));
 		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipo"));
 
+		
+		
 		Atraccion atraccion = atraccionService.update(id, nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion);
 
+		
+		
 		if (atraccion.isValid()) {
-			response.sendRedirect("/view/atracciones/atracciones.do");
+			response.sendRedirect("atracciones.do");
 		} else {
 			request.setAttribute("atraccion", atraccion);
 

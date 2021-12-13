@@ -36,15 +36,15 @@ public class CreateAtraccionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String nombre = request.getParameter("nombre");
-		Integer costo = Integer.parseInt(request.getParameter("costo"));
+		Double costo = Double.parseDouble(request.getParameter("costo"));
 		Double tiempoNecesario = Double.parseDouble(request.getParameter("tiempoNecesario"));
-		Integer cupoPersonas = Integer.parseInt(request.getParameter("cupoPersonas"));
-		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipoAtraccion"));
+		Integer cupoPersonas = Integer.parseInt(request.getParameter("cupo"));
+		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipo"));
 
 		Atraccion atraccion = atraccionService.create(nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion);
 
 		if (atraccion.isValid()) {
-			response.sendRedirect("/view/atracciones/atracciones.do");
+			response.sendRedirect("atracciones.do");
 		} else {
 			request.setAttribute("atraccion", atraccion);
 

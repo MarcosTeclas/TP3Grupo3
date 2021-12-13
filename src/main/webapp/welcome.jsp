@@ -13,7 +13,7 @@
 				¡Bienvenido, <c:out value="${usuario.nombre}" />!
 			</h1>
 		</div >
-		<div><img class="mx-auto d-block" alt="" src="img/saludoanimado.png"></div>
+		<div><img class="mx-auto d-block " width="500" alt="" src="img/logo.png"></div>
 	</main>
 </body>
 </html>

@@ -19,7 +19,7 @@
 						<li class="nav-item"><a class="nav-link" href="promociones.do">Promociones</a>
 						</li>
 
-						<li class="nav-item"><a class="nav-link" href="principal.do">Usuarios</a></li>
+						<li class="nav-item"><a class="nav-link" href="usuarios.do">Usuarios</a></li>
 					</ul>
 					<form class="d-flex">
 						<img src="img/logo.png" width="48" alt="" />

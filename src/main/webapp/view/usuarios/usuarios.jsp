@@ -7,10 +7,9 @@
 <jsp:include page="/view/partials/head.jsp"></jsp:include>
 </head>
 <body>
+<jsp:include page="/view/partials/nav.jsp"></jsp:include>
 
-	<jsp:include page="/view/partials/nav.jsp"></jsp:include>
-
-	<main class="container">
+<main class="container">
 
 		<c:if test="${flash != null}">
 			<div class="alert alert-danger">
@@ -29,22 +28,23 @@
 
 
 
-		<c:if test="${usuario.isAdmin()}">
-			<div class="p-1 mb-7 my-3 hover">
-				<a href="create.do" class="btn btn-primary shadow" role="button">
-					<i class="bi bi-plus-lg"></i> Nueva Atracción
-				</a>
-			</div>
+		<c:if test="${!usuario.isAdmin()}">
+			<div class="bg-light p-4 rounded my-5 text-center">
+			<h1>
+				Lo siento, tiene que ser administrador para ver esta página!
+			</h1>
+		</div >
+		<div><img class="mx-auto d-block" alt="" src="img/saludoanimado.png"></div>
 		</c:if>
+		<div class="mb-5"></div>
 		<table id="example"
-			class="table table-stripped table-hover table-dark">
+			class="table table-stripped table-hover table-dark my-5">
 			<thead>
 				<tr>
 					<th>Nombre</th>
-					<th>Tipo</th>
-					<th>Costo</th>
-					<th>Duracion</th>
-					<th>Cupo</th>
+					<th>monedas disponibles</th>
+					<th>Tiempo disponible</th>
+					<th>Promos y atracciones compradas</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>
@@ -61,17 +61,7 @@
 									role="button">Editar</a>
 								<a href="delete.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button">Eliminar</a>
-							</c:if> <c:choose>
-								<c:when
-									test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo()>0}">
-									<a href="/view/atracciones/comprar.do?id=${attraction.id}"
-										class="btn btn-success rounded" role="button">Comprar</a>
-								</c:when>
-								<c:otherwise>
-									<a href="#" class="btn btn-secondary rounded disabled"
-										role="button">No se puede comprar</a>
-								</c:otherwise>
-							</c:choose></td>
+							</c:if> ></td>
 					</tr>
 				</c:forEach>
 			</tbody>

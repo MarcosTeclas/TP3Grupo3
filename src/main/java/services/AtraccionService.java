@@ -13,7 +13,7 @@ public class AtraccionService {
 		return DAOFactory.getAtraccionDAO().findAll();
 	}
 	
-	public Atraccion create(String nombre, Integer costo, Double tiempoNecesario, Integer cupoPersonas, TipoDeAtraccion tipoAtraccion) {
+	public Atraccion create(String nombre, Double costo, Double tiempoNecesario, Integer cupoPersonas, TipoDeAtraccion tipoAtraccion) {
 		Atraccion atraccion = new Atraccion (nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion);
 		
 		if(atraccion.isValid()) {
@@ -25,11 +25,13 @@ public class AtraccionService {
 	}
 
 	public void delete(Integer id) {
-		Atraccion atraccion = new Atraccion(0, null, 0, 0, 0, null);
+		Atraccion atraccion = new Atraccion(id, null, 0, 0, 0, null);
 		
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		atraccionDAO.delete(atraccion);
 	}
+	
+	
 	
 	public Atraccion find(Integer id) {
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
@@ -38,7 +40,7 @@ public class AtraccionService {
 	
 	public Atraccion update(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
 
-		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
+		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO(); //obtengo daoimpl ( donde comunica con bd )
 		Atraccion atraccion = atraccionDAO.findById(id);
 
 		atraccion.setNombre(nombre);

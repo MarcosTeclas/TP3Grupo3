@@ -91,7 +91,7 @@ public class Atraccion extends Producto{
 		if(cupoPersonas <= 0) {
 			errors.put("cupo de personas", "debe ser positivo");	
 		}
-		if(tipo != null) {
+		if(tipo == null) {
 			errors.put("tipo de atracción", "no debe estar vacío");	
 		}
 		
@@ -100,4 +100,11 @@ public class Atraccion extends Producto{
 	public HashMap<String,String> getErrors(){
 		return errors;
 	}
+	/*@Override
+	public int getActiva() {
+		
+		return activa;
+	}*/
+	
+	
 }

@@ -23,7 +23,8 @@
   
   
   <body>
-    <div class="container bg-primary my-5 rounded shadow">
+  
+    <div class="container bg-primary my-5 rounded shadow" >
       <!--al container le puse w-75(que ocupe un 75% de la pagina ancho) y mt-5 para que no quede pegado de arriba y abajo y rounded para redondear las esquinas-->
       <div class="row align-items-stretch">
         <div

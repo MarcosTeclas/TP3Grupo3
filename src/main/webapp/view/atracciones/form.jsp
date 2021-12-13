@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<div class="mb-3">
-		<label for="tipo" class="form-label">Tipo de atraccion</label>
+		<label for="tipo" class='form-label ${atraccion.errors.get("tipoAtraccion") != null ? "is-invalid" : "" }'>Tipo de atraccion</label>
 		<select class="form-select" required name="tipo" aria-label="default select example" id="tipo">
 		
 		<option selected value="">Seleccione un tipo de atraccion</option>
