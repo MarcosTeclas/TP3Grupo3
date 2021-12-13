@@ -4,8 +4,7 @@ import java.util.HashMap;
 
 public class Atraccion extends Producto{
 	
-	public boolean ocuparAtraccion;
-	HashMap<String, String> errors;
+	private HashMap<String, String> errors;
 
 	public Atraccion(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
 		super(id, nombre, costo, tiempoNecesario, cupoPersonas, tipo);
@@ -94,7 +93,6 @@ public class Atraccion extends Producto{
 		if(tipo == null) {
 			errors.put("tipo de atracción", "no debe estar vacío");	
 		}
-		
 	}
 
 	public HashMap<String,String> getErrors(){

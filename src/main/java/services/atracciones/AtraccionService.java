@@ -1,4 +1,4 @@
-package services;
+package services.atracciones;
 
 import java.util.List;
 
@@ -30,8 +30,6 @@ public class AtraccionService {
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		atraccionDAO.delete(atraccion);
 	}
-	
-	
 	
 	public Atraccion find(Integer id) {
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();

@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
-import services.AtraccionService;
+import services.atracciones.AtraccionService;
 
 @WebServlet("/atracciones.do")
 public class ListaAtraccionesServlet extends HttpServlet implements Servlet {

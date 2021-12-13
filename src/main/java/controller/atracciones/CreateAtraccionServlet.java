@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import model.TipoDeAtraccion;
-import services.AtraccionService;
+import services.atracciones.AtraccionService;
 
 @WebServlet("/create.do")
 public class CreateAtraccionServlet extends HttpServlet {

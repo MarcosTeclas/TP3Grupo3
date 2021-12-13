@@ -1,4 +1,4 @@
-package controller.atracciones;
+package controller.promociones;
 
 import java.io.IOException;
 
@@ -7,18 +7,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import services.atracciones.AtraccionService;
+import services.promociones.PromocionService;
 
 @WebServlet("/delete.do")
-public class DeleteAtraccionesServlet extends HttpServlet {
+public class DeletePromocionServlet extends HttpServlet {
 
-	private static final long serialVersionUID = -2804822557949520648L;
-	private AtraccionService atraccionService;
+	private static final long serialVersionUID = 1978922477776738426L;
+	private PromocionService promocionService;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		this.atraccionService = new AtraccionService();
+		this.promocionService = new PromocionService();
 	}
 
 	@Override
@@ -27,9 +27,9 @@ public class DeleteAtraccionesServlet extends HttpServlet {
 	
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
-		atraccionService.delete(id);
+		promocionService.delete(id);
 		
-		response.sendRedirect("atracciones.do");
+		response.sendRedirect("promociones.do");
 	
 	}
 }

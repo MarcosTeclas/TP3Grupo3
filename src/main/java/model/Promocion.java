@@ -1,11 +1,13 @@
 package model;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 public abstract class Promocion extends Producto {
 
 	protected List<Atraccion> atraccionesIncluidas;
+	protected HashMap<String, String> errors;
 
 	public Promocion(int id, TipoDeAtraccion tipo, String nombre, List<Atraccion> atraccionesIncluidas) {
 		super(id, nombre, tipo);
@@ -82,6 +84,30 @@ public abstract class Promocion extends Producto {
 			contiene = producto.contiene(itr.next());
 		}
 		return contiene;
+	}
+	public boolean isValid() {
+		validate();
+		
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		
+		errors = new HashMap<String,String>();
+		if(tipo == null) {
+			errors.put("tipo de atracción", "no debe estar vacío");	
+		}
+		if(nombre == null || nombre == "") {
+			errors.put("nombre", "no debe estar vacío");	
+		}
+		if(atraccionesIncluidas == null) {
+			errors.put("lista de atracciones", "no debe estar vacía");	
+		}
+
+	}
+
+	public HashMap<String,String> getErrors(){
+		return errors;
 	}
 
 }

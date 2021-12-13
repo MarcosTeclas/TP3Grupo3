@@ -1,11 +1,8 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-
-import persistence.UserDAO;
-import persistence.impl.UserDAOImpl;
 import utils.Crypt;
 
 public class Usuario {
@@ -15,8 +12,8 @@ public class Usuario {
 	private TipoDeAtraccion preferida;
 	private double dinero, tiempo;
 	private List<Producto> itinerario;
-	//private boolean admin;
 	private String password;
+	private HashMap<String, String> errors;
 
 	
 	public Usuario(int id, String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
@@ -36,9 +33,9 @@ public class Usuario {
 		this.preferida = preferencia;
 		this.itinerario = itinerario;
 		this.password = password;
-		//this.admin = admin;
 	}
-	public Usuario( String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
+	
+	public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
 			List<Producto> itinerario, String password) {
 		if (validaNumeros(dinero)) {
 			this.dinero = dinero;
@@ -55,11 +52,42 @@ public class Usuario {
 		this.preferida = preferencia;
 		this.itinerario = itinerario;
 		this.password = password;
-		//this.admin = admin;
 	}
 
 	public int getId() {
 		return id;
+	}
+
+	public TipoDeAtraccion getPreferida() {
+		return preferida;
+	}
+
+	public void setPreferida(TipoDeAtraccion preferida) {
+		this.preferida = preferida;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setDinero(double dinero) {
+		this.dinero = dinero;
+	}
+
+	public void setTiempo(double tiempo) {
+		this.tiempo = tiempo;
+	}
+
+	public void setItinerario(List<Producto> itinerario) {
+		this.itinerario = itinerario;
+	}
+
+	public void setErrors(HashMap<String, String> errors) {
+		this.errors = errors;
 	}
 
 	public String getNombre() {
@@ -150,6 +178,37 @@ public class Usuario {
 	
 	public boolean isNull() {
 		return false;
+	}
+
+	public boolean isValid() {
+		validate();
+		
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		
+		errors = new HashMap<String,String>();
+		
+		if(nombre == null || nombre == "") {
+			errors.put("nombre", "no debe estar vacío");	
+		}
+		if(preferida == null) {
+			errors.put("tipo de atracción preferida", "no debe estar vacío");	
+		}
+		if(dinero <= 0) {
+			errors.put("dinero", "debe ser positivo");
+		}
+		if(tiempo <= 0) {
+			errors.put("tiempo", "debe ser positivo");	
+		}
+		if(password == null || password == "") {
+			errors.put("password", "no debe estar vacío");	
+		}
+	}
+	
+	public HashMap<String,String> getErrors(){
+		return errors;
 	}
 	
 	/*public static void main(String[] args) {
