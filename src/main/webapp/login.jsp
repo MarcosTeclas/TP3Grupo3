@@ -34,7 +34,7 @@
         <div class="col bg-white rounded-end">
           <div class="text-end mt-2">
             <!-- esta clase es para alinear el contenido hacia la izquierda-->
-            <img src="img/logo.png" width="60" alt="Logo de la empresa" />
+            <img src=https://i.ibb.co/nzDMzZ0/logo.png width="60" alt="Logo de la empresa" />
           </div>
           <h2 class="fw-bold text-center py-4 m">Bienvenidos a Tierra Media</h2>
           <!-- fw-bold es para poner negrita. pt-5 es padding-top y mb-5 es mb-5 es margin botton 5-->
@@ -56,14 +56,7 @@
               <input type="text" class="form-control" name="usuario"/><!--el input para que se pueda escribir-->
             </div>
             
-            <!-- 
-            <div class="mb-4">
-              <label for="password" class="form-label">Contraseña</label>
-              <!-- Label es una etiqueta. for="" siempre tiene que coincidir con el nombre del imput type-->
-              <!--<input type="password" class="form-control" name="Password"
-              /><!--el input para que se pueda escribir-->
-            <!--</div>
-				 -->
+            
             <div class="d-grid mb-5">
               <!--d-grid es para que mi contenido ocupe toda la grilla disponible ( ancho de la pagina que le asigne )-->
               <button type="submit" class="btn btn-primary">Iniciar sesion</button>

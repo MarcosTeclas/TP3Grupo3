@@ -22,7 +22,7 @@
 						<li class="nav-item"><a class="nav-link" href="usuarios.do">Usuarios</a></li>
 					</ul>
 					<form class="d-flex">
-						<img src="img/logo.png" width="48" alt="" />
+						<img src=https://i.ibb.co/nzDMzZ0/logo.png width="48" alt="" />
 					</form>
 				</div>
 			</div>

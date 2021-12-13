@@ -1,12 +1,12 @@
 body
 {
-    background-image: url(../../img/fondoPantalla.png);
+    background-image: url(https://i.ibb.co/93gy0Q1/fondo-Pantalla.png);
     background-position: center center;
 }
 
 .image
 {
-    background-image: url(../../img/fondo.png);
+    background-image: url(https://i.ibb.co/VtZ278f/fondo.png);
     background-position: center center;
     width: 600px;
     height: 500px;
