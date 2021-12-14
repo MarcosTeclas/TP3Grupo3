@@ -16,7 +16,6 @@ public class Usuario {
 	private HashMap<String, String> errors;
 	private int admin;
 
-	
 	public Usuario(int id, String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
 			List<Producto> itinerario, String password) {
 		if (validaNumeros(dinero)) {
@@ -35,9 +34,9 @@ public class Usuario {
 		this.itinerario = itinerario;
 		this.password = password;
 	}
-	
-	public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
-			List<Producto> itinerario, String password) {
+
+	public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo, List<Producto> itinerario,
+			String password) {
 		if (validaNumeros(dinero)) {
 			this.dinero = dinero;
 		} else {
@@ -48,19 +47,22 @@ public class Usuario {
 		} else {
 			this.tiempo = 0;
 		}
-		public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
-				List<Producto> itinerario, String password, int admin) {
-			if (validaNumeros(dinero)) {
-				this.dinero = dinero;
-			} else {
-				this.dinero = 0;
-			}
-			if (validaNumeros(tiempo)) {
-				this.tiempo = tiempo;
-			} else {
-				this.tiempo = 0;
-			}
-		
+
+	}
+
+	public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo, List<Producto> itinerario,
+			String password, int admin) {
+		if (validaNumeros(dinero)) {
+			this.dinero = dinero;
+		} else {
+			this.dinero = 0;
+		}
+		if (validaNumeros(tiempo)) {
+			this.tiempo = tiempo;
+		} else {
+			this.tiempo = 0;
+		}
+
 		this.nombre = nombre;
 		this.preferida = preferencia;
 		this.itinerario = itinerario;
@@ -68,11 +70,11 @@ public class Usuario {
 		this.admin = admin;
 	}
 
-	public boolean isAdmin(){
-		//retorna true si el admin es 1
+	public boolean isAdmin() {
+		// retorna true si el admin es 1
 		return admin == 1;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -120,10 +122,11 @@ public class Usuario {
 	public double getTiempo() {
 		return tiempo;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -148,8 +151,7 @@ public class Usuario {
 	}
 
 	public boolean puedeComprarProducto(Producto producto) {
-		 return puedePagar(producto) && tieneTiempo(producto)
-				&& !estaEnElItinerario(producto) && producto.hayCupo();
+		return puedePagar(producto) && tieneTiempo(producto) && !estaEnElItinerario(producto) && producto.hayCupo();
 	}
 
 	public boolean puedePagar(Producto producto) {
@@ -181,51 +183,52 @@ public class Usuario {
 		return "Usuario [nombre=" + nombre + ", atracci�n preferida=" + preferida + ", dinero disponible=" + dinero
 				+ ", tiempo disponible=" + tiempo + "]";
 	}
-	
+
 	public boolean checkPassword(String password) {
 		return Crypt.match(password, this.password);
 	}
-	
+
 	public boolean isNull() {
 		return false;
 	}
 
 	public boolean isValid() {
 		validate();
-		
+
 		return errors.isEmpty();
 	}
-	
+
 	public void validate() {
-		
-		errors = new HashMap<String,String>();
-		
-		if(nombre == null || nombre == "") {
-			errors.put("nombre", "no debe estar vacío");	
+
+		errors = new HashMap<String, String>();
+
+		if (nombre == null || nombre == "") {
+			errors.put("nombre", "no debe estar vacío");
 		}
-		if(preferida == null) {
-			errors.put("tipo de atracción preferida", "no debe estar vacío");	
+		if (preferida == null) {
+			errors.put("tipo de atracción preferida", "no debe estar vacío");
 		}
-		if(dinero <= 0) {
+		if (dinero <= 0) {
 			errors.put("dinero", "debe ser positivo");
 		}
-		if(tiempo <= 0) {
-			errors.put("tiempo", "debe ser positivo");	
+		if (tiempo <= 0) {
+			errors.put("tiempo", "debe ser positivo");
 		}
-		/*if(password == null || password == "") {
-			errors.put("password", "no debe estar vacío");	
-		}*/
+		/*
+		 * if(password == null || password == "") { errors.put("password",
+		 * "no debe estar vacío"); }
+		 */
 	}
-	
-	public HashMap<String,String> getErrors(){
+
+	public HashMap<String, String> getErrors() {
 		return errors;
 	}
-	
-	/*public static void main(String[] args) {
-		List<Producto>productos=new ArrayList<>();
-	 Usuario marcos = new Usuario("marcos",TipoDeAtraccion.AVENTURA,100,100,productos,"marcos");
-	 UserDAOImpl u = new UserDAOImpl();
-	 u.insert(marcos);
-	 System.out.println(marcos.toString());
-	}*/
+
+	/*
+	 * public static void main(String[] args) { List<Producto>productos=new
+	 * ArrayList<>(); Usuario marcos = new
+	 * Usuario("marcos",TipoDeAtraccion.AVENTURA,100,100,productos,"marcos");
+	 * UserDAOImpl u = new UserDAOImpl(); u.insert(marcos);
+	 * System.out.println(marcos.toString()); }
+	 */
 }

@@ -23,9 +23,4 @@ public class PromoPorcentual extends Promocion {
 		return costo - descuento;
 	}
 
-	@Override
-	public int getActiva() {
-		// TODO Auto-generated method stub
-		return activa;
-	}
 }

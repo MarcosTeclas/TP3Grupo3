@@ -40,8 +40,9 @@ public class CreateAtraccionServlet extends HttpServlet {
 		Double tiempoNecesario = Double.parseDouble(request.getParameter("tiempoNecesario"));
 		Integer cupoPersonas = Integer.parseInt(request.getParameter("cupo"));
 		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipo"));
+		String detalle = request.getParameter("detalle");
 
-		Atraccion atraccion = atraccionService.create(nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion,1);
+		Atraccion atraccion = atraccionService.create(nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion, detalle);
 
 		if (atraccion.isValid()) {
 			response.sendRedirect("atracciones.do");

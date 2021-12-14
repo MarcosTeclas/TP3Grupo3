@@ -38,10 +38,5 @@ public class PromoAxB extends Promocion {
 				+ ", atracciones Incluidas: " + stringAtraccionesIncluidas();
 	}
 
-	@Override
-	public int getActiva() {
-		
-		return activa;
-	}
 
 }

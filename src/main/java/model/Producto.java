@@ -57,7 +57,6 @@ public abstract class Producto {
 	public abstract void restarCupo();
 	public abstract String toStringParaMostrar();
 	public abstract boolean contiene(Producto producto);
-	public abstract int getActiva();
 	
 	public TipoDeAtraccion getTipo() {
 		return tipo;
