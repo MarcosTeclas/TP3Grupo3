@@ -113,9 +113,8 @@ public class Atraccion extends Producto{
 	public HashMap<String,String> getErrors(){
 		return errors;
 	}
-	@Override
-	public int getActiva() {
-		
+	
+	public int getActiva() {		
 		return activa;
 	}
 	
