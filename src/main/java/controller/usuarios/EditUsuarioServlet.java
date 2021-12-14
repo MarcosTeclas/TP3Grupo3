@@ -44,7 +44,7 @@ public class EditUsuarioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));	
 		String nombre = request.getParameter("nombre");
-		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipo"));
+		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("preferida"));
 		Double dinero = Double.parseDouble(request.getParameter("dinero"));
 		Double tiempo = Double.parseDouble(request.getParameter("tiempo"));
 		String password = request.getParameter("password");

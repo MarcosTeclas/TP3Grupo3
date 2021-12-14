@@ -11,14 +11,14 @@
 
 	<main class="container">
 
-		<c:if test="${atraccion != null && !atraccion.isValid()}">
+		<c:if test="${usuario != null && !usuario.isValid()}">
 			<div class="alert alert-danger">
-				<p>Se encontraron errores al actualizar la atracción.</p>
+				<p>Se encontraron errores al modificar un usuario.</p>
 			</div>
 		</c:if>
 
 		<form action="edit.do" method="post">
-			<input type="hidden" name="id" value="${atraccion.id}">
+			<input type="hidden" name="id" value="${usuario.id}">
 			<jsp:include page="form.jsp"></jsp:include>
 		</form>
 	</main>
