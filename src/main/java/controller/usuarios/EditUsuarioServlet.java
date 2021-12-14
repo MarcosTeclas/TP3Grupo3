@@ -47,9 +47,9 @@ public class EditUsuarioServlet extends HttpServlet {
 		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("preferida"));
 		Double dinero = Double.parseDouble(request.getParameter("dinero"));
 		Double tiempo = Double.parseDouble(request.getParameter("tiempo"));
-		String password = request.getParameter("password");
+		//String password = request.getParameter("password");
 		
-		Usuario usuario = usuarioService.update(id, nombre, tipoAtraccion, dinero, tiempo, password);
+		Usuario usuario = usuarioService.update(id, nombre, tipoAtraccion, dinero, tiempo);
 
 		if (usuario.isValid()) {
 			response.sendRedirect("usuarios.do");

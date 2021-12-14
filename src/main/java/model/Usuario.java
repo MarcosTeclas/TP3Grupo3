@@ -202,9 +202,9 @@ public class Usuario {
 		if(tiempo <= 0) {
 			errors.put("tiempo", "debe ser positivo");	
 		}
-		if(password == null || password == "") {
+		/*if(password == null || password == "") {
 			errors.put("password", "no debe estar vacío");	
-		}
+		}*/
 	}
 	
 	public HashMap<String,String> getErrors(){

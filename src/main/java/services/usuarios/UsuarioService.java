@@ -33,8 +33,7 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public Usuario update(Integer id, String nombre, TipoDeAtraccion tipoAtraccion, Double dinero, Double tiempo,
-			String password) {
+	public Usuario update(Integer id, String nombre, TipoDeAtraccion tipoAtraccion, Double dinero, Double tiempo) {
 
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		Usuario usuario = userDAO.findById(id);
@@ -43,7 +42,7 @@ public class UsuarioService {
 		usuario.setPreferida(tipoAtraccion);
 		usuario.setDinero(dinero);
 		usuario.setTiempo(tiempo);
-		usuario.setPassword(password);
+		//usuario.setPassword(password);
 
 		if (usuario.isValid()) {
 			userDAO.update(usuario);

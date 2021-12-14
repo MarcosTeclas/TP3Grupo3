@@ -17,7 +17,7 @@
 			</div>
 		</c:if>
 
-		<form action="edit.do" method="post">
+		<form action="editarUsuario.do" method="post">
 			<input type="hidden" name="id" value="${usuario.id}">
 			<jsp:include page="form.jsp"></jsp:include>
 		</form>
