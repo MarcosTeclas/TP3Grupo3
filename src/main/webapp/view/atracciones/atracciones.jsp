@@ -50,12 +50,14 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${atracciones}" var="attraction">
+				<c:if test="${attraction.activa == 1}">
 					<tr>
 						<td><strong><c:out value="${attraction.nombre}"></c:out></strong></td>
 						<td><c:out value="${attraction.tipo}"></c:out></td>
 						<td><c:out value="${attraction.costo}"></c:out></td>
 						<td><c:out value="${attraction.tiempoNecesario}"></c:out></td>
 						<td><c:out value="${attraction.cupo}"></c:out></td>
+						</c:if>
 						<td><c:if test="${usuario.admin}">
 								<a href="edit.do?id=${attraction.id}" class="btn btn-light"
 									role="button">Editar</a>

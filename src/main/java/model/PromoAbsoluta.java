@@ -15,4 +15,10 @@ public class PromoAbsoluta extends Promocion {
 		return this.costo;
 	}
 
+	@Override
+	public int getActiva() {
+		
+		return activa;
+	}
+
 }

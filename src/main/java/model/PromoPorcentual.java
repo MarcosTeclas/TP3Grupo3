@@ -22,4 +22,10 @@ public class PromoPorcentual extends Promocion {
 		double descuento = (costo * this.descuento) / 100;
 		return costo - descuento;
 	}
+
+	@Override
+	public int getActiva() {
+		// TODO Auto-generated method stub
+		return activa;
+	}
 }
