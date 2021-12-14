@@ -35,13 +35,14 @@ public abstract class Producto {
 	}
 	
 	//contructor de atracciones
-	public Producto(int id, String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
+	public Producto(int id, String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo,int activa) {
 		this.id = id;
 		this.nombre = nombre;
 		this.costo = costo;
 		this.tiempoNecesario = tiempoNecesario;
 		this.cupoPersonas = cupoPersonas;
 		this.tipo = tipo;
+		this.activa=activa;
 	}
 	public Producto(String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
 		this.nombre = nombre;

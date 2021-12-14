@@ -4,7 +4,7 @@
 	
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Parque</a>
+				<a class="navbar-brand" href="parque.jsp">Parque</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -21,6 +21,9 @@
 
 						<li class="nav-item"><a class="nav-link" href="usuarios.do">Usuarios</a></li>
 					</ul>
+					<spam>	<c:out value="${usuario.dinero}">dinero:</c:out> <!-- pendiente -->
+					<c:out value="${usuario.tiempo}">tiempo:</c:out>
+					</spam>
 					<form class="d-flex">
 						<img src=https://i.ibb.co/nzDMzZ0/logo.png width="48" alt="" />
 					</form>

@@ -6,8 +6,8 @@ public class Atraccion extends Producto{
 	
 	private HashMap<String, String> errors;
 
-	public Atraccion(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
-		super(id, nombre, costo, tiempoNecesario, cupoPersonas, tipo);
+	public Atraccion(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, int activa) {
+		super(id, nombre, costo, tiempoNecesario, cupoPersonas, tipo, activa);
 	}
 	public Atraccion(String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
 		super(nombre, costo, tiempoNecesario, cupoPersonas, tipo);

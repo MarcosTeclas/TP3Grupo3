@@ -50,22 +50,25 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${atracciones}" var="attraction">
-				<c:if test="${attraction.activa == 1}">
+				<c:if test='${attraction.activa == 1}'>
 					<tr>
 						<td><strong><c:out value="${attraction.nombre}"></c:out></strong></td>
 						<td><c:out value="${attraction.tipo}"></c:out></td>
 						<td><c:out value="${attraction.costo}"></c:out></td>
 						<td><c:out value="${attraction.tiempoNecesario}"></c:out></td>
 						<td><c:out value="${attraction.cupo}"></c:out></td>
-						</c:if>
+						
 						<td><c:if test="${usuario.admin}">
 								<a href="edit.do?id=${attraction.id}" class="btn btn-light"
 									role="button">Editar</a>
 								<a href="delete.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button">Eliminar</a>
-							</c:if> <c:choose>
-								<c:when
-									test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo()>0}">
+							</c:if>
+							<a href="detalles.do?id=${atraction.id}" class="btn btn-success rounded" role="button">Detalles</a>
+							
+							<!--  
+							<c:choose>
+								<c:when test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo()>0}">
 									<a href="/view/atracciones/comprar.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>
@@ -73,7 +76,10 @@
 									<a href="#" class="btn btn-secondary rounded disabled"
 										role="button">No se puede comprar</a>
 								</c:otherwise>
-							</c:choose></td>
+							</c:choose>
+							-->
+							</td>
+							</c:if> 
 					</tr>
 				</c:forEach>
 			</tbody>
