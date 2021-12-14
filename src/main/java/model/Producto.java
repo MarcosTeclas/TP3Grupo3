@@ -8,7 +8,7 @@ public abstract class Producto {
 	protected double tiempoNecesario;
 	protected int cupoPersonas;
 	protected TipoDeAtraccion tipo;
-	protected int activa;
+	
 
 	//constructor promo porcentual
 	public Producto(int id, String nombre, TipoDeAtraccion tipo){
@@ -35,22 +35,20 @@ public abstract class Producto {
 	}
 	
 	//contructor de atracciones
-	public Producto(int id, String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo,int activa) {
+	public Producto(int id, String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
 		this.id = id;
 		this.nombre = nombre;
 		this.costo = costo;
 		this.tiempoNecesario = tiempoNecesario;
 		this.cupoPersonas = cupoPersonas;
 		this.tipo = tipo;
-		this.activa = activa;
 	}
-	public Producto(String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, int activa) {
+	public Producto(String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
 		this.nombre = nombre;
 		this.costo = costo;
 		this.tiempoNecesario = tiempoNecesario;
 		this.cupoPersonas = cupoPersonas;
 		this.tipo = tipo;
-		this.activa = activa;
 	}
 
 	public abstract boolean esPromo();
@@ -108,11 +106,7 @@ public abstract class Producto {
 	public void setTipo(TipoDeAtraccion tipo) {
 		this.tipo = tipo;
 	}
-	
-	public void setActiva(int activa) {
-		this.activa=activa;
-		
-	}
+
 
 	@Override
 	public boolean equals(Object obj) {
