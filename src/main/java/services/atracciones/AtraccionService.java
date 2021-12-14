@@ -13,8 +13,8 @@ public class AtraccionService {
 		return DAOFactory.getAtraccionDAO().findAll();
 	}
 	
-	public Atraccion create(String nombre, Double costo, Double tiempoNecesario, Integer cupoPersonas, TipoDeAtraccion tipoAtraccion,int activa) {
-		Atraccion atraccion = new Atraccion (nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion);
+	public Atraccion create(String nombre, Double costo, Double tiempoNecesario, Integer cupoPersonas, TipoDeAtraccion tipoAtraccion, String detalle) {
+		Atraccion atraccion = new Atraccion (nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion, detalle);
 		
 		if(atraccion.isValid()) {
 			AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
@@ -25,7 +25,7 @@ public class AtraccionService {
 	}
 
 	public void delete(Integer id) {
-		Atraccion atraccion = new Atraccion(id, null, 0, 0, 0, null,0);
+		Atraccion atraccion = new Atraccion(null, 0, 0, 0, null, null);
 		
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		atraccionDAO.delete(atraccion);
