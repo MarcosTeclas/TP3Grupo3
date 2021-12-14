@@ -42,14 +42,15 @@ public abstract class Producto {
 		this.tiempoNecesario = tiempoNecesario;
 		this.cupoPersonas = cupoPersonas;
 		this.tipo = tipo;
-		this.activa=activa;
+		this.activa = activa;
 	}
-	public Producto(String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
+	public Producto(String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, int activa) {
 		this.nombre = nombre;
 		this.costo = costo;
 		this.tiempoNecesario = tiempoNecesario;
 		this.cupoPersonas = cupoPersonas;
 		this.tipo = tipo;
+		this.activa = activa;
 	}
 
 	public abstract boolean esPromo();

@@ -5,12 +5,17 @@ import java.util.HashMap;
 public class Atraccion extends Producto{
 	
 	private HashMap<String, String> errors;
+	private String detalle;
 
 	public Atraccion(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, int activa) {
 		super(id, nombre, costo, tiempoNecesario, cupoPersonas, tipo, activa);
 	}
-	public Atraccion(String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
-		super(nombre, costo, tiempoNecesario, cupoPersonas, tipo);
+	public Atraccion(String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, int activa) {
+		super(nombre, costo, tiempoNecesario, cupoPersonas, tipo, activa);
+	}
+	public Atraccion(String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, String detalle, int activa) {
+		super(nombre, costo, tiempoNecesario, cupoPersonas, tipo, activa);
+		this.detalle = detalle;
 	}
 
 	public boolean quedaCupo() {
@@ -51,6 +56,14 @@ public class Atraccion extends Producto{
 	
 	public int getCupo() {
 		return cupoPersonas;
+	}
+	
+	public String getDetalle() {
+		return detalle;
+	}
+	
+	public void setDetalle(String detalle) {
+		this.detalle = detalle;
 	}
 	
 	@Override

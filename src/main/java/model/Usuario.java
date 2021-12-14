@@ -14,6 +14,7 @@ public class Usuario {
 	private List<Producto> itinerario;
 	private String password;
 	private HashMap<String, String> errors;
+	private int admin;
 
 	
 	public Usuario(int id, String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
@@ -47,13 +48,31 @@ public class Usuario {
 		} else {
 			this.tiempo = 0;
 		}
+		public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
+				List<Producto> itinerario, String password, int admin) {
+			if (validaNumeros(dinero)) {
+				this.dinero = dinero;
+			} else {
+				this.dinero = 0;
+			}
+			if (validaNumeros(tiempo)) {
+				this.tiempo = tiempo;
+			} else {
+				this.tiempo = 0;
+			}
 		
 		this.nombre = nombre;
 		this.preferida = preferencia;
 		this.itinerario = itinerario;
 		this.password = password;
+		this.admin = admin;
 	}
 
+	public boolean isAdmin(){
+		//retorna true si el admin es 1
+		return admin == 1;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -165,15 +184,6 @@ public class Usuario {
 	
 	public boolean checkPassword(String password) {
 		return Crypt.match(password, this.password);
-	}
-	
-	/*public Boolean getAdmin() {
-		return admin;
-	}*/
-	
-	public boolean isAdmin() {
-		
-		return true;
 	}
 	
 	public boolean isNull() {
