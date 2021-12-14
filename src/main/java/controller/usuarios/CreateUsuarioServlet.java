@@ -40,9 +40,10 @@ public class CreateUsuarioServlet extends HttpServlet {
 		Double dinero = Double.parseDouble(request.getParameter("dinero"));
 		Double tiempo = Double.parseDouble(request.getParameter("tiempo"));
 		String password = request.getParameter("password");
+		int admin = Integer.parseInt(request.getParameter("admin"));
 		
 
-		Usuario usuario = usuarioService.create(nombre, tipoAtraccionPreferida, dinero, tiempo, password);
+		Usuario usuario = usuarioService.create(nombre, tipoAtraccionPreferida, dinero, tiempo, password, admin);
 
 		if (usuario.isValid()) {
 			response.sendRedirect("usuarios.do");

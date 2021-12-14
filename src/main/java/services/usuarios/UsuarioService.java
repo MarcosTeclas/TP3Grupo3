@@ -21,9 +21,9 @@ public class UsuarioService {
 	}
 
 	public Usuario create(String nombre, TipoDeAtraccion tipoAtraccionPreferida, Double dinero, Double tiempo,
-			String password) {
+			String password, int admin) {
 		List<Producto> itinerario = new ArrayList<>();
-		Usuario usuario = new Usuario(nombre, tipoAtraccionPreferida, dinero, tiempo, itinerario, password);
+		Usuario usuario = new Usuario(nombre, tipoAtraccionPreferida, dinero, tiempo, itinerario, password, admin);
 
 		if (usuario.isValid()) {
 			UserDAO userDAO = DAOFactory.getUserDAO();
@@ -33,7 +33,7 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public Usuario update(Integer id, String nombre, TipoDeAtraccion tipoAtraccion, Double dinero, Double tiempo) {
+	public Usuario update(Integer id, String nombre, TipoDeAtraccion tipoAtraccion, Double dinero, Double tiempo, int admin) {
 
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		Usuario usuario = userDAO.findById(id);
@@ -43,6 +43,7 @@ public class UsuarioService {
 		usuario.setDinero(dinero);
 		usuario.setTiempo(tiempo);
 		//usuario.setPassword(password);
+		usuario.setAdmin(admin);
 
 		if (usuario.isValid()) {
 			userDAO.update(usuario);
@@ -52,7 +53,7 @@ public class UsuarioService {
 	}
 	
 	public void delete(Integer id) {
-		Usuario usuario = new Usuario(id, null, null, 0, 0, null, null);
+		Usuario usuario = new Usuario(0, null, null, 0, 0, null, null, 0);
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		userDAO.delete(usuario);

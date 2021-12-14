@@ -22,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public int insert(Usuario usuario) {
 		try {
-			String sql = "INSERT INTO USUARIOS (NOMBRE, ATRACCION_PREFERIDA, DINERO_DISPONIBLE, TIEMPO_DISPONIBLE) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO USUARIOS (NOMBRE, ATRACCION_PREFERIDA, DINERO_DISPONIBLE, TIEMPO_DISPONIBLE, PASSWORD, ADMIN) VALUES (?, ? ,?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -30,6 +30,8 @@ public class UserDAOImpl implements UserDAO {
 			statement.setString(2, usuario.getAtraccionPreferida().toString());
 			statement.setDouble(3, usuario.getDinero());
 			statement.setDouble(4, usuario.getTiempo());
+			statement.setString(5, usuario.getPassword());
+			statement.setInt(6, usuario.getAdmin());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -40,7 +42,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public int update(Usuario usuario) {
 		try {
-			String sql = "UPDATE USUARIOS SET NOMBRE = ?, ATRACCION_PREFERIDA = ?, DINERO_DISPONIBLE = ?, TIEMPO_DISPONIBLE = ? WHERE ID = ?";
+			String sql = "UPDATE USUARIOS SET NOMBRE = ?, ATRACCION_PREFERIDA = ?, DINERO_DISPONIBLE = ?, TIEMPO_DISPONIBLE = ?, PASSWORD = ?, ADMIN = ? WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -48,7 +50,9 @@ public class UserDAOImpl implements UserDAO {
 			statement.setString(2, usuario.getPreferida().toString());
 			statement.setDouble(3, usuario.getDinero());
 			statement.setDouble(4, usuario.getTiempo());
-			statement.setDouble(5, usuario.getId());
+			statement.setString(5, usuario.getPassword());
+			statement.setDouble(6, usuario.getAdmin());
+			statement.setDouble(7, usuario.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -149,7 +153,7 @@ public class UserDAOImpl implements UserDAO {
 	private Usuario toUser(ResultSet resultados) throws SQLException {
 		Usuario usuario = new Usuario(resultados.getInt(1), resultados.getString(2),
 				TipoDeAtraccion.valueOf(resultados.getString(3)), resultados.getDouble(4), resultados.getDouble(5),
-				getProductosComprados(resultados.getInt(1)),resultados.getString(6));
+				getProductosComprados(resultados.getInt(1)),resultados.getString(6), resultados.getInt(7));
 		return usuario;
 	}
 	

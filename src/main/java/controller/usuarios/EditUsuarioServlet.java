@@ -47,11 +47,15 @@ public class EditUsuarioServlet extends HttpServlet {
 		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("preferida"));
 		Double dinero = Double.parseDouble(request.getParameter("dinero"));
 		Double tiempo = Double.parseDouble(request.getParameter("tiempo"));
+		int admin = Integer.parseInt(request.getParameter("admin"));
 		//String password = request.getParameter("password");
 		
-		Usuario usuario = usuarioService.update(id, nombre, tipoAtraccion, dinero, tiempo);
+		Usuario usuario = usuarioService.update(id, nombre, tipoAtraccion, dinero, tiempo, admin);
 
 		if (usuario.isValid()) {
+			if(usuario.getId() == ((Usuario)request.getSession().getAttribute("usuario")).getId()) {
+				request.getSession().setAttribute("usuario", usuario);
+			}
 			response.sendRedirect("usuarios.do");
 		} else {
 			request.setAttribute("usuario", usuario);
