@@ -28,7 +28,7 @@ public class CreateUsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/usuarios/crearUsuario.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/usuarios/create.jsp");
 		dispatcher.forward(request, response);
 	}
 

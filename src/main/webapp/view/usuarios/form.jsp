@@ -2,7 +2,7 @@
 <div class="modal-body">
 	<div class="mb-3">
 		<label for="name" class="col-form-label">Nombre:</label> <input
-			type="text" class="form-control" id="nombre" name="nombre" required
+			type="text" class="form-control" placeholder="Nombre de usuario" id="nombre" name="nombre" required
 			value="${usuario.nombre}">
 
 	</div>

@@ -28,14 +28,19 @@
 		</c:if>
 
 
+		<c:choose>
+			<c:when test="${usuario.isAdmin()}">
+				<div class="p-1 mb-7 my-3 hover">
+					<a href="create.do" class="btn btn-primary shadow" role="button">
+						<i class="bi bi-plus-lg"></i> Nueva Atracción
+					</a>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="my-5"></div>
+			</c:otherwise>
+		</c:choose>
 
-		<c:if test="${usuario.isAdmin()}">
-			<div class="p-1 mb-7 my-3 hover">
-				<a href="create.do" class="btn btn-primary shadow" role="button">
-					<i class="bi bi-plus-lg"></i> Nueva Atracción
-				</a>
-			</div>
-		</c:if>
 		<table id="example"
 			class="table table-stripped table-hover table-dark">
 			<thead>
@@ -50,23 +55,21 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${atracciones}" var="attraction">
-				<c:if test='${attraction.activa == 1}'>
-					<tr>
-						<td><strong><c:out value="${attraction.nombre}"></c:out></strong></td>
-						<td><c:out value="${attraction.tipo}"></c:out></td>
-						<td><c:out value="${attraction.costo}"></c:out></td>
-						<td><c:out value="${attraction.tiempoNecesario}"></c:out></td>
-						<td><c:out value="${attraction.cupo}"></c:out></td>
-						
-						<td><c:if test="${usuario.admin}">
-								<a href="edit.do?id=${attraction.id}" class="btn btn-light"
-									role="button">Editar</a>
-								<a href="delete.do?id=${attraction.id}"
-									class="btn btn-danger rounded" role="button">Eliminar</a>
-							</c:if>
-							<a href="detalles.do?id=${atraction.id}" class="btn btn-success rounded" role="button">Detalles</a>
-							
-							<!--  
+					<c:if test='${attraction.activa == 1}'>
+						<tr>
+							<td><strong><c:out value="${attraction.nombre}"></c:out></strong></td>
+							<td><c:out value="${attraction.tipo}"></c:out></td>
+							<td><c:out value="${attraction.costo}"></c:out></td>
+							<td><c:out value="${attraction.tiempoNecesario}"></c:out></td>
+							<td><c:out value="${attraction.cupo}"></c:out></td>
+
+							<td><c:if test="${usuario.admin}">
+									<a href="edit.do?id=${attraction.id}" class="btn btn-light"
+										role="button">Editar</a>
+									<a href="delete.do?id=${attraction.id}"
+										class="btn btn-danger rounded" role="button">Eliminar</a>
+								</c:if> <a href="detalles.do?id=${atraction.id}"
+								class="btn btn-success rounded" role="button">Detalles</a> <!--  
 							<c:choose>
 								<c:when test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo()>0}">
 									<a href="/view/atracciones/comprar.do?id=${attraction.id}"
@@ -77,9 +80,8 @@
 										role="button">No se puede comprar</a>
 								</c:otherwise>
 							</c:choose>
-							-->
-							</td>
-							</c:if> 
+							--></td>
+					</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>
