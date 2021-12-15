@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<div class="mb-3">
-		<label for="tipo" class='form-label ${atraccion.errors.get("tipoAtraccion") != null ? "is-invalid" : "" }'>Tipo de atraccion</label>
+		<label for="tipo" class='col-form-label ${atraccion.errors.get("tipoAtraccion") != null ? "is-invalid" : "" }'>Tipo de atraccion</label>
 		<select class="form-select" required name="tipo" aria-label="default select example" id="tipo">
 		
 		<option selected value="">Seleccione un tipo de atraccion</option>
@@ -43,6 +43,16 @@
 		<option value="DEGUSTACION">DEGUSTACION</option>
 		<option value="PAISAJE">PAISAJE</option>
 		</select>
+	</div>
+	
+	<div class="mb-3">
+		<label for="capacity"
+			class='col-form-label ${atraccion.errors.get("detalle") != null ? "is-invalid" : "" }'>Detalle:</label>
+		<textarea class="form-control" placeholder="Agregue un detalle de la atraccion" type="text"  id="detalle" name="detalle"
+			required value="${atraccion.detalle}"></textarea>
+		<div class="invalid-feedback">
+			<c:out value='${atraccion.errors.get("detalle")}'></c:out>
+		</div>
 	</div>
 	
 </div>
