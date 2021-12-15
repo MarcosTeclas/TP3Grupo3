@@ -36,7 +36,7 @@ public class CreateUsuarioServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String nombre = request.getParameter("nombre");
-		TipoDeAtraccion tipoAtraccionPreferida = TipoDeAtraccion.valueOf(request.getParameter("tipo"));
+		TipoDeAtraccion tipoAtraccionPreferida = TipoDeAtraccion.valueOf(request.getParameter("preferida"));
 		Double dinero = Double.parseDouble(request.getParameter("dinero"));
 		Double tiempo = Double.parseDouble(request.getParameter("tiempo"));
 		String password = request.getParameter("password");

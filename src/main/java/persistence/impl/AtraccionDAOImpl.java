@@ -108,7 +108,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	public List<Atraccion> findAll() {
 		try {
-			String sql = "SELECT * FROM ATRACCIONES";
+			String sql = "SELECT * FROM ATRACCIONES WHERE ACTIVA = 1";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();

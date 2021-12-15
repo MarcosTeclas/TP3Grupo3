@@ -28,6 +28,8 @@
 			<c:out value='${usuarioEditar.errors.get("dinero")}'></c:out>
 
 		</div>
+		
+		
 	</div>
 	<div class="mb-3">
 		<label for="duration"
@@ -38,6 +40,18 @@
 		<div class="invalid-feedback">
 			<c:out value='${usuarioEditar.errors.get("tiempo")}'></c:out>
 		</div>
+	</div>
+	
+	<div class="mb-3">
+		<label for="tipo"
+			class='form-label ${usuarioEditar.errors.get("admin") != null ? "is-invalid" : "" }'>admin</label>
+		<select class="form-select" required name="admin"
+			aria-label="default select example" id="admin">
+
+			<option selected value="">Seleccione el nivel de usuario</option>
+			<option value=1>admin</option>
+			<option value=0>usuario</option>
+		</select>
 	</div>
 
 </div>

@@ -55,7 +55,8 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${atracciones}" var="attraction">
-					<c:if test='${attraction.activa == 1}'>
+				
+					
 						<tr>
 							<td><strong><c:out value="${attraction.nombre}"></c:out></strong></td>
 							<td><c:out value="${attraction.tipo}"></c:out></td>
@@ -81,7 +82,7 @@
 								</c:otherwise>
 							</c:choose>
 							--></td>
-					</c:if>
+					
 					</tr>
 				</c:forEach>
 			</tbody>
