@@ -3,12 +3,12 @@
 	<div class="mb-3">
 		<label for="name" class="col-form-label">Nombre:</label> <input
 			type="text" class="form-control" placeholder="Nombre de usuario" id="nombre" name="nombre" required
-			value="${usuario.nombre}">
+			value="${usuarioEditar.nombre}">
 
 	</div>
 	<div class="mb-3">
 		<label for="tipo"
-			class='form-label ${usuario.errors.get("preferida") != null ? "is-invalid" : "" }'>preferida</label>
+			class='form-label ${usuarioEditar.errors.get("preferida") != null ? "is-invalid" : "" }'>preferida</label>
 		<select class="form-select" required name="preferida"
 			aria-label="default select example" id="preferida">
 
@@ -20,23 +20,23 @@
 	</div>
 	<div class="mb-3">
 		<label for="cost"
-			class='col-form-label ${usuario.errors.get("dinero") != null ? "is-invalid" : "" }'>dinero:</label>
-		<input class="form-control" placeholder="Ingrese el costo del boleto"
+			class='col-form-label ${usuarioEditar.errors.get("dinero") != null ? "is-invalid" : "" }'>dinero:</label>
+		<input class="form-control" placeholder="Dinero disponible"
 			type="number" min=0.5 step=0.5 id="dinero" name="dinero" required
-			value="${usuario.dinero}"></input>
+			value="${usuarioEditar.dinero}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${usuario.errors.get("dinero")}'></c:out>
+			<c:out value='${usuarioEditar.errors.get("dinero")}'></c:out>
 
 		</div>
 	</div>
 	<div class="mb-3">
 		<label for="duration"
-			class='col-form-label ${usuario.errors.get("tiempo") != null ? "is-invalid" : "" }'>tiempo:</label>
-		<input class="form-control" placeholder="Tiempo de duracion"
+			class='col-form-label ${usuarioEditar.errors.get("tiempo") != null ? "is-invalid" : "" }'>tiempo:</label>
+		<input class="form-control" placeholder="Tiempo disponible"
 			type="number" min=0.5 step=0.5 id="tiempo" name="tiempo" required
-			value="${usuario.tiempo}"></input>
+			value="${usuarioEditar.tiempo}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${usuario.errors.get("tiempo")}'></c:out>
+			<c:out value='${usuarioEditar.errors.get("tiempo")}'></c:out>
 		</div>
 	</div>
 
