@@ -15,6 +15,7 @@ public class Usuario {
 	private String password;
 	private HashMap<String, String> errors;
 	private int admin;
+	private int activo;
 
 	public Usuario(int id, String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo,
 			List<Producto> itinerario, String password, int admin) {
@@ -34,6 +35,7 @@ public class Usuario {
 		this.itinerario = itinerario;
 		this.password = password;
 		this.admin = admin;
+		this.activo = 1;
 	}
 
 	public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo, List<Producto> itinerario,
@@ -69,6 +71,7 @@ public class Usuario {
 		this.itinerario = itinerario;
 		this.password = password;
 		this.admin = admin;
+		this.activo = 1;
 	}
 
 	public boolean isAdmin() {
@@ -232,7 +235,14 @@ public class Usuario {
 	public void setAdmin(int admin) {
 		this.admin = admin;
 	}
+	
+	public int getActivo() {
+		return activo;
+	}
 
+	public void setActivo(int activo) {
+		this.activo = activo;
+	}
 	/*
 	 * public static void main(String[] args) { List<Producto>productos=new
 	 * ArrayList<>(); Usuario marcos = new
