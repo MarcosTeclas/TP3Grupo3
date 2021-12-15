@@ -63,7 +63,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public int delete(Usuario usuario) {
 		try {
-			String sql = "DELETE FROM USUARIOS WHERE ID = ?";
+			String sql = "UPDATE USUARIOS SET ACTIVO = 0 WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -134,7 +134,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public List<Usuario> findAll() {
 		try {
-			String sql = "SELECT * FROM USUARIOS";
+			String sql = "SELECT * FROM USUARIOS WHERE ACTIVO = 1";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();

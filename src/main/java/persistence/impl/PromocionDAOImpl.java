@@ -86,7 +86,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 
 	public int delete(Promocion promocion) {
 		try {
-			String sql = "DELETE FROM PROMOCIONES WHERE ID = ?";
+			String sql = "UPDATE PROMOCIONES SET ACTIVO = 0 WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -143,7 +143,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 
 	public List<Promocion> findAll() {
 		try {
-			String sql = "SELECT * FROM PROMOCIONES";
+			String sql = "SELECT * FROM PROMOCIONES WHERE ACTIVO = 1";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
