@@ -13,6 +13,7 @@ public abstract class Promocion extends Producto {
 		super(id, nombre, tipo);
 		this.atraccionesIncluidas = atraccionesIncluidas;
 	}
+	
 	public Promocion(TipoDeAtraccion tipo, String nombre, List<Atraccion> atraccionesIncluidas) {
 		super(nombre, tipo);
 		this.atraccionesIncluidas = atraccionesIncluidas;
