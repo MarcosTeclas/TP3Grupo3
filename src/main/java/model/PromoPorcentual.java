@@ -12,6 +12,13 @@ public class PromoPorcentual extends Promocion {
 		this.costo = getCosto();
 		this.tiempoNecesario = super.getTiempoNecesario();
 	}
+	
+	public PromoPorcentual(String nombre, TipoDeAtraccion tipo, int descuento, List<Atraccion> atraccionesIncluidas) {
+		super(tipo, nombre, atraccionesIncluidas);
+		this.descuento = descuento;
+		this.costo = getCosto();
+		this.tiempoNecesario = super.getTiempoNecesario();
+	}
 
 	@Override
 	public double getCosto() {

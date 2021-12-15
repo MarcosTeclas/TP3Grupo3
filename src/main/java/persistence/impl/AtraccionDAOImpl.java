@@ -9,6 +9,7 @@ import java.util.List;
 
 import model.Atraccion;
 import model.TipoDeAtraccion;
+import model.nullobjects.NullUser;
 import persistence.AtraccionDAO;
 import persistence.MissingDataException;
 import persistence.jdbc.ConnectionProvider;
@@ -56,11 +57,12 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	public int delete(Atraccion atraccion) {
 		try {
-			String sql = "UPDATE ATRACCIONES SET ACTIVA = 0 WHERE ID = ?";
+			String sql = "UPDATE ATRACCIONES SET ACTIVA = ? WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, atraccion.getId());
+			statement.setInt(1, atraccion.getActiva());
+			statement.setInt(2, atraccion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -118,6 +120,25 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			}
 
 			return atracciones;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	public Atraccion findByUsername(String nombre) {
+		try {
+			String sql = "SELECT * FROM ATRACCIONES WHERE NOMBRE = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombre);
+			ResultSet resultados = statement.executeQuery();
+
+			Atraccion atraccion = new Atraccion();
+
+			if (resultados.next()) {
+				atraccion = toAtraccion(resultados);
+			}
+
+			return atraccion;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}

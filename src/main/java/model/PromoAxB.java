@@ -28,7 +28,7 @@ public class PromoAxB extends Promocion {
 		while (itr.hasNext()) {
 			resultado += itr.next().getNombre() + " ";
 		}
-		resultado += "atracci�n gratuita: " + atraccionesIncluidas.get(0).getNombre();
+		resultado += "atracción gratuita: " + atraccionesIncluidas.get(0).getNombre();
 		return resultado;
 	}
 

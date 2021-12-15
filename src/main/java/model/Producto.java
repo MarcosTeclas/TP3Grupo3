@@ -9,6 +9,8 @@ public abstract class Producto {
 	protected int cupoPersonas;
 	protected TipoDeAtraccion tipo;
 	
+	public Producto() {}
+	
 
 	//constructor promo porcentual
 	public Producto(int id, String nombre, TipoDeAtraccion tipo){

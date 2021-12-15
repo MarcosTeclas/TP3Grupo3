@@ -27,9 +27,17 @@ public class PromocionDAOImpl implements PromocionDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, promocion.getNombre());
 			statement.setString(2, promocion.getTipo().toString());
-			statement.setDouble(3, promocion.getCosto());
-			// statement.setString(4, promocion.getAtraccionGratuita());
-			// statement.setInt(5, promocion.getDescuento());
+
+			if (promocion.getNombre().equals("PromoAbsoluta")) {
+				statement.setDouble(3, promocion.getCosto());
+			}
+
+			statement.setInt(4, promocion.getAtraccionesIncluidas().get(1).getId());
+
+			if (promocion.getNombre().equals("PromoPorcentual")) {
+				statement.setDouble(5, promocion.getCosto());
+			}
+
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -37,17 +45,44 @@ public class PromocionDAOImpl implements PromocionDAO {
 			throw new MissingDataException(e);
 		}
 	}
+
 	public int update(Promocion promocion) {
-		
-		List<Atraccion> atraccionesIncluidas = promocion.getAtraccionesIncluidas();
-		int rows = 0;
-		AtraccionDAOImpl atraccionDao = new AtraccionDAOImpl();
-		
-		for (Atraccion atraccion : atraccionesIncluidas) {
-			rows = atraccionDao.update(atraccion);
+
+		try {
+			String sql = "UPDATE PROMOCIONES SET NOMBRE = ?, TIPO_ATRACCION = ?, COSTO = ?, ATRACCION_GRATUITA = ?, DESCUENTO= ? WHERE ID = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, promocion.getNombre());
+			statement.setString(2, promocion.getTipo().name());
+
+			if (promocion.getNombre().equals("PromoAbsoluta")) {
+				statement.setDouble(3, promocion.getCosto());
+			}
+			
+			statement.setInt(4, promocion.getAtraccionesIncluidas().get(1).getId());
+
+			if (promocion.getNombre().equals("PromoPorcentual")) {
+				statement.setDouble(5, promocion.getCosto());
+			}
+			
+			statement.setInt(6, promocion.getId());
+			
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
 		}
-		return rows;
 	}
+
+	/*
+	 * List<Atraccion> atraccionesIncluidas = promocion.getAtraccionesIncluidas();
+	 * int rows = 0; AtraccionDAOImpl atraccionDao = new AtraccionDAOImpl();
+	 * 
+	 * for (Atraccion atraccion : atraccionesIncluidas) { rows =
+	 * atraccionDao.update(atraccion); } return rows; }
+	 */
 
 	public int delete(Promocion promocion) {
 		try {
