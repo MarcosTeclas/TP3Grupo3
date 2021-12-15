@@ -10,6 +10,12 @@ public class PromoAxB extends Promocion {
 		this.costo = getCosto();
 		this.tiempoNecesario = super.getTiempoNecesario();
 	}
+	
+	public PromoAxB(String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
+		super(tipo, nombre, atraccionesIncluidas);
+		this.costo = getCosto();
+		this.tiempoNecesario = super.getTiempoNecesario();
+	}
 
 	@Override
 	public double getCosto() {
