@@ -57,12 +57,11 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	public int delete(Atraccion atraccion) {
 		try {
-			String sql = "UPDATE ATRACCIONES SET ACTIVA = ? WHERE ID = ?";
+			String sql = "UPDATE ATRACCIONES SET ACTIVA = 0 WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, atraccion.getActiva());
-			statement.setInt(2, atraccion.getId());
+			statement.setInt(1, atraccion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
