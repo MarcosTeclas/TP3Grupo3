@@ -9,7 +9,6 @@ import java.util.List;
 
 import model.Atraccion;
 import model.TipoDeAtraccion;
-import model.nullobjects.NullUser;
 import persistence.AtraccionDAO;
 import persistence.MissingDataException;
 import persistence.jdbc.ConnectionProvider;
@@ -18,7 +17,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	public int insert(Atraccion atraccion) {
 		try {
-			String sql = "INSERT INTO ATRACCIONES (NOMBRE, COSTO, TIEMPO_NECESARIO, CUPO, TIPO_ATRACCION) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO ATRACCIONES (NOMBRE, COSTO, TIEMPO_NECESARIO, CUPO, TIPO_ATRACCION, ACTIVA, DETALLES) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -26,7 +25,9 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setDouble(2, atraccion.getCosto());
 			statement.setDouble(3, atraccion.getTiempoNecesario());
 			statement.setInt(4, atraccion.getCupo());
-			statement.setString(5, atraccion.getTipo().toString());
+			statement.setString(5, atraccion.getTipo().name());
+			statement.setInt(6, atraccion.getActiva());
+			statement.setString(7, atraccion.getDetalle());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -37,16 +38,18 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	public int update(Atraccion atraccion) {
 		try {
-			String sql = "UPDATE ATRACCIONES SET CUPO = ?, COSTO = ?, NOMBRE = ?, TIEMPO_NECESARIO = ?, TIPO_ATRACCION= ? WHERE ID = ?";
+			String sql = "UPDATE ATRACCIONES SET NOMBRE = ?, COSTO = ?, TIEMPO_NECESARIO = ?, CUPO = ?, TIPO_ATRACCION= ? ACTIVA = ?, DETALLE = ? WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, atraccion.getCupo());
+			statement.setString(1, atraccion.getNombre());
 			statement.setDouble(2, atraccion.getCosto());
-			statement.setString(3, atraccion.getNombre());
-			statement.setDouble(4, atraccion.getTiempoNecesario());
-			statement.setString(5, atraccion.getTipo().toString());
-			statement.setInt(6, atraccion.getId());
+			statement.setDouble(3, atraccion.getTiempoNecesario());
+			statement.setInt(4, atraccion.getCupo());
+			statement.setString(5, atraccion.getTipo().name());
+			statement.setInt(6, atraccion.getActiva());
+			statement.setString(7, atraccion.getDetalle());
+			statement.setInt(8, atraccion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -145,7 +148,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	private Atraccion toAtraccion(ResultSet resultados) throws SQLException {
 		return new Atraccion(resultados.getInt(1), resultados.getString(2), resultados.getDouble(3), resultados.getDouble(4),
-				resultados.getInt(5), TipoDeAtraccion.valueOf(resultados.getString(6)), resultados.getString(7));
+				resultados.getInt(5), TipoDeAtraccion.valueOf(resultados.getString(6)), resultados.getString(8));
 	}
 
 }
