@@ -14,7 +14,6 @@ import model.Atraccion;
 import model.PromoPorcentual;
 import model.TipoDeAtraccion;
 import persistence.DAOFactory;
-import services.atracciones.AtraccionService;
 import services.promociones.PromocionService;
 
 @WebServlet("/crearPromoPorcentual.do")
@@ -22,13 +21,11 @@ public class CreatePromoPorcentualServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -4617006016953432868L;
 	private PromocionService promocionService;
-	private AtraccionService atraccionService;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		this.promocionService = new PromocionService();
-		this.atraccionService = new AtraccionService();
 	}
 
 	@Override
@@ -57,14 +54,14 @@ public class CreatePromoPorcentualServlet extends HttpServlet {
 
 		PromoPorcentual promocion = promocionService.create(nombre, tipoAtraccion, descuento, atraccionesIncluidas);
 
-		/*if (promocion.isValid()) {
+		if (promocion.isValid()) {
 			response.sendRedirect("promociones.do");
 		} else {
 			request.setAttribute("promocion", promocion);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/promociones/createPromoPorcentual.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/promociones/crearPromoPorcentual.jsp");
 			dispatcher.forward(request, response);
-		}*/
+		}
 	}
 
 }
