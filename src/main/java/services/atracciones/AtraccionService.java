@@ -36,7 +36,7 @@ public class AtraccionService {
 		return atraccionDAO.findById(id);
 	}
 	
-	public Atraccion update(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
+	public Atraccion update(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, String detalle) {
 
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO(); //obtengo daoimpl ( donde comunica con bd )
 		Atraccion atraccion = atraccionDAO.findById(id);
@@ -46,6 +46,7 @@ public class AtraccionService {
 		atraccion.setTiempoNecesario(tiempoNecesario);
 		atraccion.setCupoPersonas(cupoPersonas);
 		atraccion.setTipo(tipo);
+		atraccion.setDetalle(detalle);
 
 		if (atraccion.isValid()) {
 			atraccionDAO.update(atraccion);

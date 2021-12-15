@@ -48,10 +48,10 @@ public class EditAtraccionesServlet extends HttpServlet {
 		Double tiempoNecesario = Double.parseDouble(request.getParameter("tiempoNecesario"));
 		Integer cupoPersonas = Integer.parseInt(request.getParameter("cupo"));
 		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipo"));
-
+		String detalle = request.getParameter("detalle");
 		
 		
-		Atraccion atraccion = atraccionService.update(id, nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion);
+		Atraccion atraccion = atraccionService.update(id, nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion, detalle);
 
 		
 		
