@@ -17,7 +17,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	public int insert(Atraccion atraccion) {
 		try {
-			String sql = "INSERT INTO ATRACCIONES (NOMBRE, COSTO, TIEMPO_NECESARIO, CUPO, TIPO_ATRACCION, ACTIVA, DETALLES) VALUES (?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO ATRACCIONES (NOMBRE, COSTO, TIEMPO_NECESARIO, CUPO, TIPO_ATRACCION, DETALLES) VALUES (?, ?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -26,7 +26,6 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setDouble(3, atraccion.getTiempoNecesario());
 			statement.setInt(4, atraccion.getCupo());
 			statement.setString(5, atraccion.getTipo().name());
-			statement.setInt(6, atraccion.getActiva());
 			statement.setString(7, atraccion.getDetalle());
 			int rows = statement.executeUpdate();
 
@@ -38,7 +37,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	public int update(Atraccion atraccion) {
 		try {
-			String sql = "UPDATE ATRACCIONES SET NOMBRE = ?, COSTO = ?, TIEMPO_NECESARIO = ?, CUPO = ?, TIPO_ATRACCION= ? ACTIVA = ?, DETALLE = ? WHERE ID = ?";
+			String sql = "UPDATE ATRACCIONES SET NOMBRE = ?, COSTO = ?, TIEMPO_NECESARIO = ?, CUPO = ?, TIPO_ATRACCION= ? DETALLE = ? WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -47,9 +46,8 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setDouble(3, atraccion.getTiempoNecesario());
 			statement.setInt(4, atraccion.getCupo());
 			statement.setString(5, atraccion.getTipo().name());
-			statement.setInt(6, atraccion.getActiva());
-			statement.setString(7, atraccion.getDetalle());
-			statement.setInt(8, atraccion.getId());
+			statement.setString(6, atraccion.getDetalle());
+			statement.setInt(7, atraccion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
