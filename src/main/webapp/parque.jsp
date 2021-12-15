@@ -90,4 +90,7 @@
 	</div>
 	
 </body>
+<footer>
+<jsp:include page="/view/partials/footer.jsp"></jsp:include>
+</footer>
 </html>
