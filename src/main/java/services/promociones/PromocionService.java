@@ -64,4 +64,58 @@ public class PromocionService {
 		PromocionDAO atraccionDAO = DAOFactory.getPromocionDAO();
 		return atraccionDAO.findById(id);
 	}
+
+	public PromoPorcentual updatePromoPorcentual(Integer id, String nombre, TipoDeAtraccion tipoAtraccion,
+			Integer descuento, List<Atraccion> atraccionesIncluidas) {
+		
+		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
+		PromoPorcentual promo = (PromoPorcentual) promocionDAO.findByUsername(nombre);
+		
+		promo.setNombre(nombre);
+		promo.setTipo(tipoAtraccion);
+		promo.setDescuento(descuento);
+		promo.setAtraccionesIncluidas(atraccionesIncluidas);
+		
+		if (promo.isValid()) {
+			promocionDAO.update(promo);
+		}
+		
+		return promo;
+	}
+
+	public PromoAbsoluta updatePromoAbsoluta(Integer id, String nombre, TipoDeAtraccion tipoAtraccion, Double costo,
+			List<Atraccion> atraccionesIncluidas) {
+		
+		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
+		PromoAbsoluta promo = (PromoAbsoluta) promocionDAO.findByUsername(nombre);
+		
+		promo.setNombre(nombre);
+		promo.setTipo(tipoAtraccion);
+		promo.setCosto(costo);
+		promo.setAtraccionesIncluidas(atraccionesIncluidas);
+		
+		if (promo.isValid()) {
+			promocionDAO.update(promo);
+		}
+		
+		return promo;
+		
+	}
+
+	public PromoAxB updatePromoAxB(Integer id, String nombre, TipoDeAtraccion tipoAtraccion,
+			List<Atraccion> atraccionesIncluidas) {
+		
+		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
+		PromoAxB promo = (PromoAxB) promocionDAO.findByUsername(nombre);
+		
+		promo.setNombre(nombre);
+		promo.setTipo(tipoAtraccion);
+		promo.setAtraccionesIncluidas(atraccionesIncluidas);
+		
+		if (promo.isValid()) {
+			promocionDAO.update(promo);
+		}
+		
+		return promo;
+	}
 }

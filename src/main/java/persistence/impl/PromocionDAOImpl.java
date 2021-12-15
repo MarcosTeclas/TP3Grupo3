@@ -59,15 +59,15 @@ public class PromocionDAOImpl implements PromocionDAO {
 			if (promocion.getNombre().equals("PromoAbsoluta")) {
 				statement.setDouble(3, promocion.getCosto());
 			}
-			
+
 			statement.setInt(4, promocion.getAtraccionesIncluidas().get(1).getId());
 
 			if (promocion.getNombre().equals("PromoPorcentual")) {
 				statement.setDouble(5, promocion.getCosto());
 			}
-			
+
 			statement.setInt(6, promocion.getId());
-			
+
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -160,6 +160,38 @@ public class PromocionDAOImpl implements PromocionDAO {
 			}
 
 			return promociones;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+	public Promocion findByUsername(String nombre) {
+		try {
+			String sql = "SELECT * FROM PROMOCIONES WHERE NOMBRE = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombre);
+			ResultSet resultados = statement.executeQuery();
+
+			Promocion promocion = null;
+			
+			if (nombre.equals("Pack Aventura")) {
+				if (resultados.next()) {
+					promocion = toPromoPorcentual(resultados);
+				}
+			}
+			if (nombre.equals("Pack Degustacion")) {
+				if (resultados.next()) {
+					promocion = toPromoAbsoluta(resultados);
+				}
+			}
+			if (nombre.equals("Pack Paisaje")) {
+				if (resultados.next()) {
+					promocion = toPromoAxB(resultados);
+				}
+			}
+
+			return promocion;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
