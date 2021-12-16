@@ -17,8 +17,10 @@
 	
 	<!-- ACA PONGO LA IMAGEN -->
 	
-	<div>
-		<img alt="" src="imagen de la atraccion">
+	<div class ="mb-4">
+		<img alt="" src='${detalles.url}'>
+		<br>
+		<hr>
 		<br>
 		<c:out value="${detalles.detalle}"></c:out>
 	</div>
@@ -27,7 +29,7 @@
 	<ul>
 	<li> <strong> Costo: $</strong><c:out value="${detalles.costo}"></c:out> </li>
 	<br>
-	<li><strong> Tiempo: $</strong><c:out value="${detalles.costo}"></c:out> </li>
+	<li><strong> Tiempo: hs </strong><c:out value="${detalles.tiempoNecesario}"></c:out> </li>
 	</ul>
 	</div>
 	

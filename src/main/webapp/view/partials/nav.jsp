@@ -21,9 +21,12 @@
 
 						<li class="nav-item"><a class="nav-link" href="usuarios.do">Usuarios</a></li>
 					</ul>
+					<div>
 					<spam>	<c:out value="${usuario.dinero}">dinero:</c:out> <!-- pendiente -->
 					<c:out value="${usuario.tiempo}">tiempo:</c:out>
 					</spam>
+					</div>
+					
 					<form class="d-flex">
 						<img src=https://i.ibb.co/nzDMzZ0/logo.png width="48" alt="" />
 					</form>
