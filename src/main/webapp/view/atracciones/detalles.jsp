@@ -17,8 +17,9 @@
 	
 	<!-- ACA PONGO LA IMAGEN -->
 	
+	<c:out value="${detalles.url}"></c:out>
 	<div class ="mb-4">
-		<img alt="" src='${detalles.url}'>
+		<img alt="" src="">
 		<br>
 		<hr>
 		<br>

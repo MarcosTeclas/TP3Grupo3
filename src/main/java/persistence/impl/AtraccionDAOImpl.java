@@ -48,8 +48,8 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setInt(4, atraccion.getCupo());
 			statement.setString(5, atraccion.getTipo().name());
 			statement.setString(6, atraccion.getDetalle());
-			statement.setInt(7, atraccion.getId());
-			statement.setString(8, atraccion.getUrl());
+			statement.setString(7, atraccion.getUrl());
+			statement.setInt(8, atraccion.getId());			
 			int rows = statement.executeUpdate();
 
 			return rows;
