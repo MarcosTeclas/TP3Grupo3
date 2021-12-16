@@ -33,8 +33,8 @@ public class ComprarAtraccionService {
 		if(errors.isEmpty()) {
 			usuario.comprarProducto(atraccion);
 			
-			//atraccionDAO.update(atraccion);
-			//userDAO.update(usuario);
+			atraccionDAO.update(atraccion);
+			userDAO.update(usuario);
 		}
 		return errors;
 	}

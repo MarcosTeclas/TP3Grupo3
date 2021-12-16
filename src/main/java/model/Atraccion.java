@@ -17,6 +17,7 @@ public class Atraccion extends Producto {
 		super(id, nombre, costo, tiempoNecesario, cupoPersonas, tipo);
 		this.detalle = detalle;
 		this.activa = 1;
+		this.url=url;
 	}
 
 	public Atraccion(String nombre, double costo, double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo,
@@ -24,6 +25,7 @@ public class Atraccion extends Producto {
 		super(nombre, costo, tiempoNecesario, cupoPersonas, tipo);
 		this.detalle = detalle;
 		this.activa = 1;
+		this.url=url;
 	}
 
 	public boolean quedaCupo() {

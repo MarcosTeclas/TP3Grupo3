@@ -21,13 +21,12 @@
 
 						<li class="nav-item"><a class="nav-link" href="usuarios.do">Usuarios</a></li>
 					</ul>
-					<div>
-					<spam>	<c:out value="${usuario.dinero}">dinero:</c:out> <!-- pendiente -->
-					<c:out value="${usuario.tiempo}">tiempo:</c:out>
-					</spam>
+					<div class ="ps-2 bg-secondary text-ligth row p-2 text-center rounded">
+					<div class="col-12 col-sm-4">Monedas de oro: <c:out value="${usuario.dinero}"></c:out></div>
+					<div class="col-12 col-sm-4">Tiempo disponible: <c:out value="${usuario.tiempo}"></c:out></div>
 					</div>
 					
-					<form class="d-flex">
+					<form class="d-flex p-3">
 						<img src=https://i.ibb.co/nzDMzZ0/logo.png width="48" alt="" />
 					</form>
 				</div>

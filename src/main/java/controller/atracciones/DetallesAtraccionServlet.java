@@ -37,26 +37,5 @@ public class DetallesAtraccionServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/*@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String nombre = request.getParameter("nombre");
-		Double costo = Double.parseDouble(request.getParameter("costo"));
-		Double tiempoNecesario = Double.parseDouble(request.getParameter("tiempoNecesario"));
-		Integer cupoPersonas = Integer.parseInt(request.getParameter("cupo"));
-		TipoDeAtraccion tipoAtraccion = TipoDeAtraccion.valueOf(request.getParameter("tipo"));
-		String detalle = request.getParameter("detalle");
-
-		Atraccion atraccion = atraccionService.create(nombre, costo, tiempoNecesario, cupoPersonas, tipoAtraccion, detalle);
-
-		if (atraccion.isValid()) {
-			response.sendRedirect("atracciones.do");
-		} else {
-			request.setAttribute("atraccion", atraccion);
-
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/atracciones/create.jsp");
-			dispatcher.forward(request, response);
-		}
-	}*/
-
+	
 }

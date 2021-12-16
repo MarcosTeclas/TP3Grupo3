@@ -9,33 +9,48 @@
 <body>
 
 	<jsp:include page="/view/partials/nav.jsp"></jsp:include>
-	
-	<div class = "text-center mt-5  shadow">
-	<h1><strong><c:out value="${detalles.nombre}"></c:out></strong></h1>
-	<hr>
+
+	<div class="text-center mt-5  shadow">
+		<h1>
+			<strong><c:out value="${detalles.nombre}"></c:out></strong>
+		</h1>
+		<hr>
 	</div>
-	
+
 	<!-- ACA PONGO LA IMAGEN -->
-	
-	<c:out value="${detalles.url}"></c:out>
-	<div class ="mb-4">
-		<img alt="" src="">
-		<br>
+
+
+	<div class="mb-4">
+		<img alt="" src="${detalles.url}"> <br>
 		<hr>
 		<br>
 		<c:out value="${detalles.detalle}"></c:out>
 	</div>
-	
+
 	<div class="mt-5 container-fluid bg-dark text-white d-block">
-	<ul>
-	<li> <strong> Costo: $</strong><c:out value="${detalles.costo}"></c:out> </li>
-	<br>
-	<li><strong> Tiempo: hs </strong><c:out value="${detalles.tiempoNecesario}"></c:out> </li>
-	</ul>
+		<ul>
+			<li><strong> Costo: $</strong>
+			<c:out value="${detalles.costo}"></c:out></li>
+			<br>
+			<li><strong> Tiempo: hs </strong>
+			<c:out value="${detalles.tiempoNecesario}"></c:out></li>
+		</ul>
+
+		<div class="p-1 mb-7 my-3 hover">
+			<c:choose>
+				<c:when
+					test="${usuario.puedePagar(detalles) && usuario.tieneTiempo(detalles) && detalles.getCupo()>0}">
+					<a href="comprar.do?id=${detalles.id}"
+						class="btn btn-success rounded" role="button">Comprar</a>
+				</c:when>
+				<c:otherwise>
+					<a href="#" class="btn btn-secondary rounded disabled"
+						role="button">No se puede comprar</a>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
-	
-	<footer>
-	<jsp:include page="/view/partials/footer.jsp"></jsp:include>
-</footer>
+
+
 </body>
 </html>
