@@ -25,7 +25,7 @@ public class AtraccionService {
 	}
 
 	public void delete(Integer id) {
-		Atraccion atraccion = new Atraccion(id,null, 0, 0, 0, null, null);
+		Atraccion atraccion = new Atraccion(id,null, 0, 0, 0, null, null,null);
 		
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		atraccionDAO.delete(atraccion);
@@ -36,7 +36,7 @@ public class AtraccionService {
 		return atraccionDAO.findById(id);
 	}
 	
-	public Atraccion update(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, String detalle) {
+	public Atraccion update(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, String detalle, String url) {
 
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO(); //obtengo daoimpl ( donde comunica con bd )
 		Atraccion atraccion = atraccionDAO.findById(id);
@@ -47,6 +47,7 @@ public class AtraccionService {
 		atraccion.setCupoPersonas(cupoPersonas);
 		atraccion.setTipo(tipo);
 		atraccion.setDetalle(detalle);
+		atraccion.setUrl(url);
 
 		if (atraccion.isValid()) {
 			atraccionDAO.update(atraccion);

@@ -38,20 +38,31 @@
 		<label for="tipo" class='col-form-label ${atraccion.errors.get("tipoAtraccion") != null ? "is-invalid" : "" }'>Tipo de atraccion</label>
 		<select class="form-select" required name="tipo" aria-label="default select example" id="tipo">
 		
-		<option selected value="">Seleccione un tipo de atraccion</option>
+		<option selected value="${atraccion.tipo}">Seleccione un tipo de atraccion</option>
 		<option value="AVENTURA">AVENTURA</option>
 		<option value="DEGUSTACION">DEGUSTACION</option>
 		<option value="PAISAJE">PAISAJE</option>
 		</select>
+		
 	</div>
 	
 	<div class="mb-3">
-		<label for="capacity"
+		<label for="detalle"
 			class='col-form-label ${atraccion.errors.get("detalle") != null ? "is-invalid" : "" }'>Detalle:</label>
 		<textarea class="form-control" placeholder="Agregue un detalle de la atraccion" type="text"  id="detalle" name="detalle"
 			required value="${atraccion.detalle}"></textarea>
 		<div class="invalid-feedback">
 			<c:out value='${atraccion.errors.get("detalle")}'></c:out>
+		</div>
+	</div>
+	
+	<div class="mb-3">
+		<label for="url"
+			class='col-form-label ${atraccion.errors.get("url") != null ? "is-invalid" : "" }'>Url:</label>
+		<textarea class="form-control" placeholder="agregue la url de la imagen" type="text"  id="url" name="url"
+			required value="${atraccion.url}"></textarea>
+		<div class="invalid-feedback">
+			<c:out value='${atraccion.errors.get("url")}'></c:out>
 		</div>
 	</div>
 	

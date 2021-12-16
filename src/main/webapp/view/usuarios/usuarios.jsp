@@ -59,16 +59,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${usuarios}" var="usuario">
+						<c:forEach items="${usuarios}" var="temp_usuario">
 							<tr>
-								<td><strong><c:out value="${usuario.nombre}"></c:out></strong></td>
-								<td><c:out value="${usuario.dinero}"></c:out></td>
-								<td><c:out value="${usuario.tiempo}"></c:out></td>
-								<td><c:out value="${usuario.itinerario}"></c:out></td>
+								<td><strong><c:out value="${temp_usuario.nombre}"></c:out></strong></td>
+								<td><c:out value="${temp_usuario.dinero}"></c:out></td>
+								<td><c:out value="${temp_usuario.tiempo}"></c:out></td>
+								<td><c:out value="${temp_usuario.itinerario}"></c:out></td>
 
-								<td><a href="editarUsuario.do?id=${usuario.id}"
+								<td><a href="editarUsuario.do?id=${temp_usuario.id}"
 									class="btn btn-light" role="button">Editar</a> <a
-									href="borrarUsuario.do?id=${usuario.id}"
+									href="borrarUsuario.do?id=${temp_usuario.id}"
 									class="btn btn-danger rounded" role="button">Eliminar</a> 
 									</td>
 							</tr>

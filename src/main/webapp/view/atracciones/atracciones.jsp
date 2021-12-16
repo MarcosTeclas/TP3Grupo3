@@ -69,7 +69,7 @@
 										role="button">Editar</a>
 									<a href="delete.do?id=${attraction.id}"
 										class="btn btn-danger rounded" role="button">Eliminar</a>
-								</c:if> <a href="detalles.do?id=${atraction.id}"
+								</c:if> <a href="detalles.do?id=${attraction.id}"
 								class="btn btn-success rounded" role="button">Detalles</a> <!--  
 							<c:choose>
 								<c:when test="${usuario.puedePagar(attraction) && usuario.tieneTiempo(attraction) && attraction.getCupo()>0}">

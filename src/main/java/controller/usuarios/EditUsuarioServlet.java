@@ -33,8 +33,8 @@ public class EditUsuarioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
-		Usuario usuario = usuarioService.find(id);
-		request.setAttribute("usuario", usuario);
+		Usuario temp_usuario = usuarioService.find(id);
+		request.setAttribute("temp_usuario", temp_usuario);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/usuarios/edit.jsp");
 		dispatcher.forward(request, response);
 	}

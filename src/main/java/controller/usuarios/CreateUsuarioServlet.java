@@ -43,12 +43,12 @@ public class CreateUsuarioServlet extends HttpServlet {
 		int admin = Integer.parseInt(request.getParameter("admin"));
 		
 
-		Usuario usuarioEditar = usuarioService.create(nombre, tipoAtraccionPreferida, dinero, tiempo, password, admin);
+		Usuario temp_usuario = usuarioService.create(nombre, tipoAtraccionPreferida, dinero, tiempo, password, admin);
 
-		if (usuarioEditar.isValid()) {
+		if (temp_usuario.isValid()) {
 			response.sendRedirect("usuarios.do");
 		} else {
-			request.setAttribute("usuarioEditar", usuarioEditar);
+			request.setAttribute("temp_usuario", temp_usuario);
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/usuarios/create.jsp");
 			dispatcher.forward(request, response);

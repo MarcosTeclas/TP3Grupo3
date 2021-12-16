@@ -1,8 +1,7 @@
 
-
 <div id="footer">
 	<div class="container">
-		<div class="row">
+		<div class="row text-center">
 			<div class="col-md-4">
 				<p class="contacto">CONTACTO</p>
 				<p class="titulo-contacto">Lorem ipsum dolor sit amet,

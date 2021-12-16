@@ -7,11 +7,14 @@ public class Atraccion extends Producto{
 	private HashMap<String, String> errors;
 	private int activa;
 	private String detalle;
+	private String url;
+	
+
 	
 
 	public Atraccion() {}
 
-	public Atraccion(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, String detalle) {
+	public Atraccion(int id, String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo, String detalle, String url) {
 		super(id, nombre, costo, tiempoNecesario, cupoPersonas, tipo);
 		this.detalle = detalle;
 		this.activa = 1;
@@ -119,6 +122,18 @@ public class Atraccion extends Producto{
 	
 	public int getActiva() {		
 		return activa;
+	}
+
+	@Override
+	public void setUrl(String url) {
+		this.url=url;
+		
+	}
+
+	@Override
+	public String getUrl() {
+		
+		return url;
 	}
 	
 }
