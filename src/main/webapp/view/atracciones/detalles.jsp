@@ -12,5 +12,8 @@
 	
 	<div><h2>Aca va una imagen</h2></div>
 	
+	<div>
+		
+	</div>
 </body>
 </html>
